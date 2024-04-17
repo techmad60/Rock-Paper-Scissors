@@ -4,8 +4,18 @@ import { Barlow, Freckle } from "../../fonts/fonts";
 export default function Page() {
     return (
         <div className='flex justify-center flex-col items-center'>
+            <div className="avatar flex flex-col justify-center items-center">
+                <Image
+                    className={`border-4 border-white rounded-full `}
+                    src= "/images/clown.png"
+                    alt="Techmad"
+                    width={100}
+                    height={100}
+                    priority
+                    />
+            </div>
 
-            <h1 className={`${Freckle.className} text-center text-xl game-title flex justify-center items-center space-x-2 mt-8`}>
+            <h1 className={`${Freckle.className} text-center text-xl game-title flex justify-center items-center space-x-2 mt-4`}>
                 <span className='title text-rock-1'>Rock</span>
                 <span className='title text-paper-1'>Paper</span>
                 <span className='title text-scissors-1'>Scissors</span>
@@ -13,7 +23,7 @@ export default function Page() {
                 <span className='title text-spock-1'>Spock</span>
             </h1>
             <div>
-                <p className = {` text-animation text-center text-white mt-4 p-4 leading-7 text-sm`}>In a world where choices spark, <br/>
+                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-sm`}>In a world where choices spark, <br/>
                 There&apos;s <span className="text-rock-1">Rock </span>
                 <span className="text-paper-1">Paper </span> 
                 <span className="text-scissors-1">Scissors </span> 
