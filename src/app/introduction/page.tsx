@@ -32,6 +32,31 @@ export default function Page() {
             ease: "bounce",
             stagger: 0.2,
         });
+        tl.fromTo('.button', {opacity: 0, scale: 2}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.2,
+        });
+        tl.fromTo('.avatar', {y: 0}, {
+            y: 10,
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            yoyo: true,
+            repeat: -1
+        });
+        tl.fromTo('.button', {opacity: 0, scale: 1.5}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.2,
+            repeat: -1,
+        });
 
     })
     return (
@@ -55,7 +80,7 @@ export default function Page() {
                 <span className='title text-spock-1'>Spock</span>
             </h1>
             <div>
-                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-sm`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
+                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-[16px]`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
                 <span className='word'>There&apos;s</span> <span className="word text-rock-1">Rock,</span>
                 <span className="word text-paper-1"> Paper,</span> 
                 <span className="word text-scissors-1"> Scissors,</span>
@@ -81,8 +106,8 @@ export default function Page() {
               </p> 
             </div>
 
-            <div className='bg-white'>
-                <button className={`${Freckle.className}`}>Level 1</button>
+            <div className='bg-white border-2 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4'>
+                <button className={`${Freckle.className} text-lizard-1 p-2`}>Level one</button>
             </div>
         </div>
     ) 
