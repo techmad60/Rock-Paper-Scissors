@@ -47,10 +47,21 @@ export default function Home() {
     } else {
       document.body.style.overflow = 'auto'; 
     }
+
+    // Add event listener for beforeunload
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Remove event listener when component unmounts
     return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
       document.body.style.overflow = 'auto';
     };
   }, [isVisible]);
+
+  
+  const handleBeforeUnload = () => {
+    setIsAudioPlaying(false);
+  };
 
   useGSAP(() => {
     gsap.to('.button', {
@@ -202,7 +213,6 @@ export default function Home() {
       {showButton && (
         <div className={`z-30 cursor-pointer button bg-yellow-300 rounded-md m-2 border-2 border-white hover:bg-green-500 hover:border-purple-950`} onClick={handleParagraphClick}>
         <button className={`${Freckle.className} text-center text-xl  p-1`}>Click me</button>
-        {/* {isAudioPlaying && <audio src="/audio/home.mp3" autoPlay />} */}
         </div>
       )}
       {isAudioPlaying && <audio src="/audio/home.mp3" autoPlay />}
