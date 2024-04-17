@@ -1,21 +1,19 @@
 "use client"
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle } from "../../fonts/fonts";
 
 export default function Page() {
-    const container = useRef<HTMLDivElement>(null);
+
     let tl = gsap.timeline();
     useGSAP (() => {
-        tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 2}, {
+        tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
             y: 0,
             scale: 1,
-            rotate: 0,
             opacity: 1,
             duration: 1,
-            ease: "bounce",
+            ease: "bounce.out",
         });
         tl.fromTo('.title', {y: -400,}, {
             y: 0,
@@ -26,10 +24,18 @@ export default function Page() {
             ease: "bounce",
             stagger: 0.5,
         });
+        tl.fromTo('.word', {opacity: 0, scale: 2}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.2,
+        });
 
     })
     return (
-        <div className='flex justify-center flex-col items-center' ref={container}>
+        <div className='flex justify-center flex-col items-center' >
             <div className="avatar flex flex-col justify-center items-center z-30">
                 <Image
                     className={`border-4 border-white rounded-full `}
@@ -49,29 +55,29 @@ export default function Page() {
                 <span className='title text-spock-1'>Spock</span>
             </h1>
             <div>
-                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-sm`}>In a world where choices spark, <br/>
-                There&apos;s <span className="text-rock-1">Rock</span>,
-                <span className="text-paper-1"> Paper</span>, 
-                <span className="text-scissors-1"> Scissors</span>,
-                <span className="text-lizard-1"> Lizard</span>, and 
-                <span className="text-spock-1"> Spock </span>. <br />
-                <span className="text-rock-1">Rock </span> crushes 
-                <span className="text-scissors-1"> Scissors </span>, its power immense, <br />
-                <span className="text-paper-1">Paper </span> covers 
-                <span className="text-rock-1"> Rock </span>, a defensive stance. <br />
-                <span className="text-scissors-1"> Scissors </span> cuts 
-                <span className="text-paper-1"> Paper </span>, with blades so sharp, <br />
-                <span className="text-lizard-1">Lizard </span>poisons 
-                <span className="text-scissors-1"> Scissors </span>, strikes with a dart. <br /> 
-                <span className="text-spock-1">Spock</span> disproves 
-                <span className="text-lizard-1"> Lizard </span>, logic his guide, <br />
-                But <span className="text-paper-1">Paper</span> defeats him, where truths collide. <br />
-                Play with wit in this grand game, <br />
-                <span className="text-rock-1">Rock</span>,
-                <span className="text-paper-1">Paper</span>, 
-                <span className="text-scissors-1">Scissors</span>,  
-                <span className="text-lizard-1">Lizard</span>, 
-                <span className="text-spock-1">Spock</span> the aim. <br />
+                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-sm`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
+                <span className='word'>There&apos;s</span> <span className="word text-rock-1">Rock,</span>
+                <span className="word text-paper-1"> Paper,</span> 
+                <span className="word text-scissors-1"> Scissors,</span>
+                <span className="word text-lizard-1"> Lizard,</span> <span className='word'>and</span>  
+                <span className="word text-spock-1"> Spock. </span> <br />
+                <span className="word text-rock-1">Rock </span> <span className='word'>crushes</span> 
+                <span className="word text-scissors-1"> Scissors, </span> <span className='word'>its</span> <span className='word'>power</span> <span className='word'>immense,</span> <br />
+                <span className="word text-paper-1">Paper </span> <span className='word'>covers</span>  
+                <span className="word text-rock-1"> Rock, </span> <span className='word'>a</span> <span className='word'>defensive</span> <span className='word'>stance.</span><br />
+                <span className="word text-scissors-1"> Scissors </span> <span className='word'>cuts</span>
+                <span className="word text-paper-1"> Paper, </span> <span className='word'>with</span> <span className='word'>blades</span> <span className='word'>so</span> <span className='word'>sharp,</span><br />
+                <span className="word text-lizard-1">Lizard </span> <span className='word'>poisons</span> 
+                <span className="word text-scissors-1"> Scissors, </span> <span className='word'>strikes</span> <span className='word'>with</span> <span className='word'>a</span> <span className='word'>dart.</span><br /> 
+                <span className="word text-spock-1">Spock</span> <span className='word'>disproves</span> 
+                <span className="word text-lizard-1"> Lizard,</span> <span className='word'>logic</span> <span className='word'>his</span> <span className='word'>guide,</span><br />
+                <span className='word'>But</span> <span className="word text-paper-1">Paper</span> <span className='word'>defeats</span> <span className='word'>him,</span > <span className='word'>where</span> <span className='word'>truths</span> <span className='word'>collide.</span><br />
+                <span className='word'>Play</span> <span className='word'>with</span> <span className='word'>wit</span> <span className='word'>in</span> <span className='word'>this</span> <span className='word'>grand</span> <span className='word'>game,</span><br />
+                <span className="word text-rock-1">Rock, </span>
+                <span className="word text-paper-1">Paper, </span> 
+                <span className="word text-scissors-1">Scissors, </span>  
+                <span className="word text-lizard-1">Lizard, </span> 
+                <span className="word text-spock-1">Spock ,</span> <span className='word'>the</span> <span className='word'>aim.</span><br />
               </p> 
             </div>
 
