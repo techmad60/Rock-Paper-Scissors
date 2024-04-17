@@ -1,10 +1,36 @@
+"use client"
 import Image from 'next/image';
-import { Barlow, Freckle } from "../../fonts/fonts";
+import { useState, useEffect, useRef } from 'react';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Freckle } from "../../fonts/fonts";
 
 export default function Page() {
+    const container = useRef<HTMLDivElement>(null);
+    let tl = gsap.timeline();
+    useGSAP (() => {
+        tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 2}, {
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+        });
+        tl.fromTo('.title', {y: -400,}, {
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.5,
+        });
+
+    })
     return (
-        <div className='flex justify-center flex-col items-center'>
-            <div className="avatar flex flex-col justify-center items-center">
+        <div className='flex justify-center flex-col items-center' ref={container}>
+            <div className="avatar flex flex-col justify-center items-center z-30">
                 <Image
                     className={`border-4 border-white rounded-full `}
                     src= "/images/clown.png"
@@ -24,10 +50,10 @@ export default function Page() {
             </h1>
             <div>
                 <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-sm`}>In a world where choices spark, <br/>
-                There&apos;s <span className="text-rock-1">Rock </span>
-                <span className="text-paper-1">Paper </span> 
-                <span className="text-scissors-1">Scissors </span> 
-                <span className="text-lizard-1">Lizard </span>and 
+                There&apos;s <span className="text-rock-1">Rock</span>,
+                <span className="text-paper-1"> Paper</span>, 
+                <span className="text-scissors-1"> Scissors</span>,
+                <span className="text-lizard-1"> Lizard</span>, and 
                 <span className="text-spock-1"> Spock </span>. <br />
                 <span className="text-rock-1">Rock </span> crushes 
                 <span className="text-scissors-1"> Scissors </span>, its power immense, <br />
@@ -41,16 +67,16 @@ export default function Page() {
                 <span className="text-lizard-1"> Lizard </span>, logic his guide, <br />
                 But <span className="text-paper-1">Paper</span> defeats him, where truths collide. <br />
                 Play with wit in this grand game, <br />
-                <span className="text-rock-1">Rock </span> 
-                <span className="text-paper-1">Paper </span> 
-                <span className="text-scissors-1">Scissors </span>  
-                <span className="text-lizard-1"> Lizard </span> 
-                <span className="text-spock-1">Spock </span> the aim. <br />
+                <span className="text-rock-1">Rock</span>,
+                <span className="text-paper-1">Paper</span>, 
+                <span className="text-scissors-1">Scissors</span>,  
+                <span className="text-lizard-1">Lizard</span>, 
+                <span className="text-spock-1">Spock</span> the aim. <br />
               </p> 
             </div>
 
-            <div>
-                <button>Level 1</button>
+            <div className='bg-white'>
+                <button className={`${Freckle.className}`}>Level 1</button>
             </div>
         </div>
     ) 
