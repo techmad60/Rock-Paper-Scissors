@@ -24,7 +24,7 @@ export default function Page() {
             ease: "bounce",
             stagger: 0.5,
         });
-        tl.fromTo('.word', {opacity: 0, scale: 2}, {
+        tl.fromTo('.word', {opacity: 0, scale: 3}, {
             y: 0,
             scale: 1,
             opacity: 1,
