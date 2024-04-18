@@ -30,7 +30,7 @@ export default function Page() {
             opacity: 1,
             duration: 1,
             ease: "bounce",
-            stagger: 0.2,
+            stagger: 0.25,
         });
         tl.fromTo('.button', {opacity: 0, scale: 2}, {
             y: 0,
@@ -80,7 +80,7 @@ export default function Page() {
                 <span className='title text-spock-1'>Spock</span>
             </h1>
             <div>
-                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-[16px]`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
+                <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-[15px]`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
                 <span className='word'>There&apos;s</span> <span className="word text-rock-1">Rock,</span>
                 <span className="word text-paper-1"> Paper,</span> 
                 <span className="word text-scissors-1"> Scissors,</span>
