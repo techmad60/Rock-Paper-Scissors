@@ -3,6 +3,7 @@ import Image from 'next/image';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle } from "../../fonts/fonts";
+import Link from 'next/link';
 
 export default function Page() {
 
@@ -106,9 +107,9 @@ export default function Page() {
               </p> 
             </div>
 
-            <div className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-yellow-500'>
+            <Link href={"/level-one"} className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-yellow-500'>
                 <button className={`${Freckle.className} text-lizard-1 p-2 bg-green-500 m-1 rounded-sm`}>Level one</button>
-            </div>
+            </Link>
         </div>
     ) 
   }
