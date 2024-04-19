@@ -106,8 +106,8 @@ export default function Page() {
               </p> 
             </div>
 
-            <div className='bg-white border-2 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4'>
-                <button className={`${Freckle.className} text-lizard-1 p-2`}>Level one</button>
+            <div className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-yellow-500'>
+                <button className={`${Freckle.className} text-lizard-1 p-2 bg-green-500 m-1 rounded-sm`}>Level one</button>
             </div>
         </div>
     ) 
