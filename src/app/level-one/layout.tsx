@@ -4,7 +4,7 @@ export default function LevelOneLayout({
     children: React.ReactNode
   }) {
     return (
-      <section className="bg-background min-h-screen flex flex-col ">
+      <section className="bg-background p-8 min-h-screen flex flex-col ">
       {children}
       </section>
     )

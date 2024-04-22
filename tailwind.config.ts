@@ -12,14 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-
-      fontFamily: {
-        'barlow': [ 'Barlow Semi Condensed', 'sans-serif'],
-        'style-script': [ 'Style Script', 'cursive'],
+        "triangle":"url('/images/bg-triangle.svg')"
       },
       letterSpacing: {
         widest: "0.5em",
@@ -37,7 +30,9 @@ const config: Config = {
         'scissors-2': "hsl(40, 84%, 53%)",
         'lizard-2': "hsl(261, 72%, 63%)",
         'spock-2': "(189, 58%, 57%)",
-        
+        'dark-text' : "hsl(229, 25%, 31%)" ,
+        'score-text': "hsl(229, 64%, 46%)",
+        'header-outline': "hsl(217, 16%, 45%)"
       },
     },
   },

@@ -1,13 +1,50 @@
-
+import { Freckle, Barlow } from "../../fonts/fonts";
 export default function LevelOne() {
 
     return (
-        <div className='flex justify-center flex-col' >
-           <div className="text-white"> 
-              <p>ROCK</p>
-              <p>PAPER</p>
-              <p>SCISSORS</p>
-           </div>
-        </div>
+      <div className={`${Freckle.className}flex justify-center 
+      flex-col `}>
+         <p className="text-center text-white"> Level 1 </p>
+         <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1">
+            <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
+               <div className={` ${Barlow.className} text-white font-semibold text-xl leading-4 pl-4`}> 
+                  <p>ROCK</p>
+                  <p>PAPER</p>
+                  <p>SCISSORS</p>
+               </div>
+
+               <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px]">
+                  <p className="text-xstext-score-text">SCORE</p>
+                  <p className="text-3xl font-bold text-dark-text" >12</p>
+               </div>
+            </div>
+         </div>
+
+         <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center bg-center bg-contain"> 
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+            <p>Mechieonu</p>
+         </div>
+      </div>
     ) 
   }

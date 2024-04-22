@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Freckle } from "../../fonts/fonts";
+import { Freckle, Barlow } from "../../fonts/fonts";
 import Link from 'next/link';
 
 export default function Page() {
@@ -80,7 +80,7 @@ export default function Page() {
                 <span className='title text-lizard-1'>Lizard</span>
                 <span className='title text-spock-1'>Spock</span>
             </h1>
-            <div>
+            <div className={`${Barlow.className}`}>
                 <p className = {` text-animation text-center text-white mt-4 p-4 leading-6 text-[15px]`}> <span className='word'>In</span> <span className='word'>a</span> <span className='word'>world</span> <span className='word'>where</span> <span className='word'>choices</span> <span className='word'>spark,</span><br/>
                 <span className='word'>There&apos;s</span> <span className="word text-rock-1">Rock,</span>
                 <span className="word text-paper-1"> Paper,</span> 
@@ -107,8 +107,8 @@ export default function Page() {
               </p> 
             </div>
 
-            <Link href={"/level-one"} className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-yellow-500'>
-                <button className={`${Freckle.className} text-lizard-1 p-2 bg-green-500 m-1 rounded-sm`}>Level one</button>
+            <Link href={"/level-one"} className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green'>
+                <button className={`${Freckle.className} text-lizard-1 p-2 bg-white m-1 rounded-sm`}>Level one</button>
             </Link>
         </div>
     ) 
