@@ -1,4 +1,5 @@
 import { Freckle, Barlow } from "../../fonts/fonts";
+import Image from "next/image"
 export default function LevelOne() {
 
     return (
@@ -14,36 +15,46 @@ export default function LevelOne() {
                </div>
 
                <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px]">
-                  <p className="text-xstext-score-text">SCORE</p>
-                  <p className="text-3xl font-bold text-dark-text" >12</p>
+                  <p className="text-xs text-score-text tracking-wider font-semibold ">SCORE</p>
+                  <p className="text-4xl font-bold text-dark-text" >12</p>
                </div>
             </div>
          </div>
 
-         <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center bg-center bg-contain"> 
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
-            <p>Mechieonu</p>
+         <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center  top-48 relative w-full h-full"> 
+           <div className="bg-white w-[150px] h-[150px] icon rounded-full flex items-center justify-center border-[18px] border-rock-1 absolute">
+                <Image
+                    className="p-2"
+                    src="/images/icon-rock.svg"
+                    alt="Rock"
+                    width={75}
+                    height={75}
+                    priority
+                />
+            </div>
+            
+            <div className="bg-white w-[150px] h-[150px]  icon rounded-full flex items-center justify-center border-[18px] border-paper-1 absolute ">
+                <Image
+                    className="p-2"
+                    src="/images/icon-paper.svg"
+                    alt="Paper"
+                    width={75}
+                    height={75}
+                    priority
+                />
+            </div>
+            
+            <div className="bg-white w-[150px] h-[150px]  icon rounded-full flex items-center justify-center border-[18px] border-scissors-1 absolute">
+                <Image
+                    className="p-2"
+                    src="/images/icon-scissors.svg"
+                    alt="Scissors"
+                    width={75}
+                    height={75}
+                    priority
+                />
+            </div>
+
          </div>
       </div>
     ) 
