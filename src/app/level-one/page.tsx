@@ -1,6 +1,8 @@
 "use client"
 import { Freckle, Barlow } from "../../fonts/fonts";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import {useState, useEffect} from "react";
 
 export default function LevelOne() {
@@ -9,6 +11,60 @@ export default function LevelOne() {
     useEffect(() => {
         setIsAudioPlaying(true);
     }, []);
+
+    let tl = gsap.timeline();
+    useGSAP (() => {
+        tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce.out",
+        });
+        tl.fromTo('.level-one', {y: -400,}, {
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.5,
+        });
+        tl.fromTo('.word', {opacity: 0, scale: 3}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.25,
+        });
+        tl.fromTo('.button', {opacity: 0, scale: 2}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.2,
+        });
+        // tl.fromTo('.avatar', {y: 0}, {
+        //     y: 10,
+        //     scale: 1,
+        //     opacity: 1,
+        //     duration: 0.5,
+        //     yoyo: true,
+        //     repeat: -1
+        // });
+        tl.fromTo('.button', {opacity: 0, scale: 1.5}, {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.2,
+            repeat: -1,
+        });
+
+    })
 
     return (
         <div className={`${Freckle.className} flex justify-center 
@@ -23,7 +79,7 @@ export default function LevelOne() {
                     priority
                     />
             </div>
-         <p className={`${Freckle.className} text-center text-white mb-4`}>  Level 1 
+         <p className={`${Freckle.className} text-center level-1 text-white mb-4`}>  Level 1 
           </p>
          <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1">
             <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
