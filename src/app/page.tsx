@@ -14,7 +14,7 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [showButton, setShowButton] = useState(true);
-   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   
   const container = useRef<HTMLDivElement>(null);
