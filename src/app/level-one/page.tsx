@@ -1,6 +1,14 @@
+"use client"
 import { Freckle, Barlow } from "../../fonts/fonts";
-import Image from "next/image"
+import Image from "next/image";
+import {useState, useEffect} from "react";
+
 export default function LevelOne() {
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+    useEffect(() => {
+        setIsAudioPlaying(true);
+    }, []);
 
     return (
         <div className={`${Freckle.className} flex justify-center 
@@ -60,7 +68,7 @@ export default function LevelOne() {
             <div className={`${Barlow.className} flex justify-center items-center mt-48 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl`}>
                 <button className="text-white p-2">RULES</button>
             </div>
-            
+            {isAudioPlaying && <audio src="/audio/main.mp3" autoPlay />}
         </div>
     ) 
   }

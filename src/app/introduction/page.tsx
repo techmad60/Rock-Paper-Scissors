@@ -1,21 +1,20 @@
 "use client"
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle, Barlow } from "../../fonts/fonts";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+
 
 export default function Page() {
 
-    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-    const router = useRouter();
+    // const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    
 
-    const handleButtonClick = () => {
-        setIsAudioPlaying(true);
-        router.push('/level-one');
-    };
+    // useEffect(() => {
+    //     setIsAudioPlaying(true);
+    // }, []);
 
 
     let tl = gsap.timeline();
@@ -118,11 +117,9 @@ export default function Page() {
               </p> 
             </div>
 
-            <Link href={"/level-one"} className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500' onClick={handleButtonClick}>
+            <Link href={"/level-one"} className=' border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500'>
                 <button className={`${Freckle.className} text-lizard-1 p-2 bg-white m-1 rounded-sm`}>Level one</button>
             </Link>
-
-            {isAudioPlaying && <audio src="/audio/main.mp3" autoPlay />}
         </div>
     ) 
   }
