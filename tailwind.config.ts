@@ -17,10 +17,18 @@ const config: Config = {
       letterSpacing: {
         widest: "0.5em",
       },
+      boxShadow: {
+        'rock': '1px 5px  hsl(348, 78.38%, 36.27%)',
+        'paper': '1px 5px hsl(229.06, 66.53%, 46.86%)',
+        'scissors': '1px 5px hsl(30.34, 80.91%, 43.14%)',
+        'lizard': '1px 5px hsl(261, 73%, 60%)',
+        'spock': '1px 5px hsl(189, 59%, 53%)',
+        'insets': '1px 5px inset hsl(228.89, 24.77%, 78.63%)'
+      },
       colors: {
         'background': " hsl(214, 47%, 23%)",
         'rock-1': "hsl(349, 71%, 52%)",
-        'paper-1': " hsl(230, 89%, 62%)",
+        'paper-1': "hsl(230, 89%, 62%)",
         'scissors-1': "hsl(39, 89%, 49%)",
         'lizard-1': "hsl(261, 73%, 60%)",
         'spock-1': "hsl(189, 59%, 53%)",

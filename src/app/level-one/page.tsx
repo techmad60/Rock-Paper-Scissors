@@ -22,36 +22,36 @@ export default function LevelOne() {
          </div>
 
          <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-40 bg-contain"> 
-           <div className="bg-white w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[18px] border-rock-2 absolute top-[-70px] right-[160px]">
+           <div className="bg-rock-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
                 <Image
-                    className="p-4"
+                    className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                     src="/images/icon-rock.svg"
                     alt="Rock"
-                    width={70}
-                    height={70}
+                    width={90}
+                    height={90}
                     priority
                 />
             </div>
             
-            <div className="bg-white w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[18px] border-paper-2 absolute top-[-70px] left-[160px]">
+            <div className="bg-paper-1 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]">
                 <Image
-                    className="p-4"
+                    className="p-6 bg-white rounded-full shadow-insets"
                     src="/images/icon-paper.svg"
                     alt="Paper"
-                    width={70}
-                    height={70}
+                    width={90}
+                    height={90}
                     priority
                 />
             </div>
             
-            <div className="bg-white w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[18px] border-scissors-2 absolute 
+            <div className="bg-white w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
             top-[100px]">
                 <Image
-                    className="p-4"
+                    className="p-6 bg-white rounded-full shadow-insets"
                     src="/images/icon-scissors.svg"
                     alt="Scissors"
-                    width={70}
-                    height={70}
+                    width={90}
+                    height={90}
                     priority
                 />
             </div>
