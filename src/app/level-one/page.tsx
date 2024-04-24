@@ -44,7 +44,7 @@ export default function LevelOne() {
                 />
             </div>
             
-            <div className="bg-white w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
+            <div className="bg-wh w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
             top-[100px]">
                 <Image
                     className="p-6 bg-white rounded-full shadow-insets"
