@@ -58,7 +58,7 @@ export default function LevelOne() {
                 </div>
             </div>
             <div className={`${Barlow.className} flex justify-center items-center mt-48 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl`}>
-                <button className="text-white p-2">Rules</button>
+                <button className="text-white p-2">RULES</button>
             </div>
             
         </div>

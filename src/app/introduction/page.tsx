@@ -5,13 +5,16 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle, Barlow } from "../../fonts/fonts";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
 
     const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    const router = useRouter();
 
     const handleButtonClick = () => {
         setIsAudioPlaying(true);
+        router.push('/level-one');
     };
 
 
