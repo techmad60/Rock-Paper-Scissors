@@ -13,7 +13,17 @@ export default function LevelOne() {
     return (
         <div className={`${Freckle.className} flex justify-center 
         flex-col`}>
-         <p className={`${Freckle.className} text-center text-white`} >  Level 1 
+           <div className="avatar flex flex-col justify-center items-center z-30">
+                <Image
+                    className={`border-4 border-white rounded-full `}
+                    src= "/images/clown.png"
+                    alt="Techmad"
+                    width={50}
+                    height={50}
+                    priority
+                    />
+            </div>
+         <p className={`${Freckle.className} text-center text-white mb-4`}>  Level 1 
           </p>
          <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1">
             <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>

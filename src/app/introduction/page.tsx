@@ -9,14 +9,6 @@ import Link from 'next/link';
 
 export default function Page() {
 
-    // const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-    
-
-    // useEffect(() => {
-    //     setIsAudioPlaying(true);
-    // }, []);
-
-
     let tl = gsap.timeline();
     useGSAP (() => {
         tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
