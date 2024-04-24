@@ -30,7 +30,7 @@ export default function LevelOne() {
             ease: "bounce",
             stagger: 0.5,
         });
-        tl.fromTo('.word', {opacity: 0, scale: 3}, {
+        tl.fromTo('.score-container', {opacity: 0, scale: 3}, {
             y: 0,
             scale: 1,
             opacity: 1,
@@ -38,14 +38,50 @@ export default function LevelOne() {
             ease: "bounce",
             stagger: 0.25,
         });
-        tl.fromTo('.button', {opacity: 0, scale: 2}, {
+        tl.fromTo('.word', {opacity: 0, scale: 3, x: 20}, {
             y: 0,
+            x: 0,
             scale: 1,
             opacity: 1,
             duration: 1,
             ease: "bounce",
-            stagger: 0.2,
+            stagger: 0.25,
         });
+        tl.fromTo('.score-bg', {opacity: 0, scale: 3, x: -20}, {
+            y: 0,
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.25,
+        });
+        tl.fromTo('.score-title', {opacity: 0, scale: 3, x: -20}, {
+            y: 0,
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.25,
+        });
+        tl.fromTo('.score', {opacity: 0, scale: 3, x: -20}, {
+            y: 0,
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.25,
+        });
+        // tl.fromTo('.button', {opacity: 0, scale: 2}, {
+        //     y: 0,
+        //     scale: 1,
+        //     opacity: 1,
+        //     duration: 1,
+        //     ease: "bounce",
+        //     stagger: 0.2,
+        // });
         // tl.fromTo('.avatar', {y: 0}, {
         //     y: 10,
         //     scale: 1,
@@ -54,15 +90,15 @@ export default function LevelOne() {
         //     yoyo: true,
         //     repeat: -1
         // });
-        tl.fromTo('.button', {opacity: 0, scale: 1.5}, {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.2,
-            repeat: -1,
-        });
+        // tl.fromTo('.button', {opacity: 0, scale: 1.5}, {
+        //     y: 0,
+        //     scale: 1,
+        //     opacity: 1,
+        //     duration: 1,
+        //     ease: "bounce",
+        //     stagger: 0.2,
+        //     repeat: -1,
+        // });
 
     })
 
@@ -79,22 +115,22 @@ export default function LevelOne() {
                     priority
                     />
             </div>
-         <p className={`${Freckle.className} text-center level-1 text-white mb-4`}>  Level 1 
-          </p>
-         <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1">
-            <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
-            <div className={` ${Barlow.className} text-white font-semibold text-xl leading-4 pl-4`}> 
-                <p>ROCK</p>
-                <p>PAPER</p>
-                <p>SCISSORS</p>
-            </div>
+            <p className={`${Freckle.className} text-center level-one text-white mb-4`}>  Level 1 
+            </p>
+            <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1 score-container">
+                <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
+                    <div className={` ${Barlow.className} text-white font-semibold text-xl leading-4 pl-4`}> 
+                        <p className="word">ROCK</p>
+                        <p className="word">PAPER</p>
+                        <p className="word">SCISSORS</p>
+                    </div>
 
-            <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px]">
-                <p className="text-xs text-score-text tracking-wider font-semibold ">SCORE</p>
-                <p className="text-4xl font-bold text-dark-text" >12</p>
+                    <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px] score-bg">
+                        <p className="text-xs text-score-text tracking-wider font-semibold score-title">SCORE</p>
+                        <p className="text-4xl font-bold text-dark-text score" >12</p>
+                    </div>
+                </div>
             </div>
-            </div>
-         </div>
 
          <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
             <div className="bg-rock-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
