@@ -3,14 +3,11 @@ import { Freckle, Barlow } from "../../fonts/fonts";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import {useState, useEffect} from "react";
 
 export default function LevelOne() {
-    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
-    useEffect(() => {
-        setIsAudioPlaying(true);
-    }, []);
+    gsap.registerPlugin(MotionPathPlugin);
 
     let tl = gsap.timeline();
     useGSAP (() => {
@@ -74,6 +71,28 @@ export default function LevelOne() {
             ease: "bounce",
             stagger: 0.25,
         });
+        tl.fromTo('.bg-triangle', {opacity: 0, scale: 3, x: -20}, {
+            y: 0,
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+            stagger: 0.25,
+        });
+        tl.fromTo('.icon', {opacity: 0}, {
+            motionPath: {
+              path: "#triangle-path",
+              autoRotate: true,
+              align: "#triangle-path",
+              alignOrigin: [0.5, 0.5],
+            },
+            ease: "none",
+            duration: 1,
+            opacity: 1,
+            stagger: 0.2,
+            repeat: -1,
+          });
         // tl.fromTo('.button', {opacity: 0, scale: 2}, {
         //     y: 0,
         //     scale: 1,
@@ -133,6 +152,13 @@ export default function LevelOne() {
             </div>
 
          <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
+         <svg width="313" height="278" viewBox="0 0 313 278" xmlns="http://www.w3.org/2000/svg">
+         <path d="M 156.5 262 L 300 8 H 13 Z" fill="none" stroke="#000" stroke-width="1" opacity="0.2" id="triangle-path"/>
+         </svg>
+
+
+
+
             <div className="bg-rock-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
@@ -170,7 +196,6 @@ export default function LevelOne() {
             <div className={`${Barlow.className} flex justify-center items-center mt-48 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl`}>
                 <button className="text-white p-2">RULES</button>
             </div>
-            {isAudioPlaying && <audio src="/audio/main.mp3" autoPlay />}
         </div>
     ) 
   }
