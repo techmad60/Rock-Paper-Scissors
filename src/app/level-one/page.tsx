@@ -91,7 +91,7 @@ export default function LevelOne() {
             duration: 1,
             opacity: 1,
             stagger: 0.2,
-            repeat: -1,
+            repeat: 1,
           });
         // tl.fromTo('.button', {opacity: 0, scale: 2}, {
         //     y: 0,
