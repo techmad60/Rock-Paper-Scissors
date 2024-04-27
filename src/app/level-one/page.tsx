@@ -95,23 +95,6 @@ export default function LevelOne() {
             ease: "bounce",
             stagger: 0.2,
         });
-        // tl.fromTo('.avatar', {y: 0}, {
-        //     y: 10,
-        //     scale: 1,
-        //     opacity: 1,
-        //     duration: 0.5,
-        //     yoyo: true,
-        //     repeat: -1
-        // });
-        // tl.fromTo('.button', {opacity: 0, scale: 1.5}, {
-        //     y: 0,
-        //     scale: 1,
-        //     opacity: 1,
-        //     duration: 1,
-        //     ease: "bounce",
-        //     stagger: 0.2,
-        //     repeat: -1,
-        // });
 
     })
 
