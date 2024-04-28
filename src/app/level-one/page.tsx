@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Freckle, Barlow } from "../../fonts/fonts";
 import Image from "next/image";
 import gsap from "gsap";
@@ -8,6 +8,7 @@ import {useState, useEffect} from "react";
 
 export default function LevelOne() {
     gsap.registerPlugin(MotionPathPlugin);
+
 
     let tl = gsap.timeline();
     useGSAP (() => {
@@ -97,6 +98,7 @@ export default function LevelOne() {
         });
 
     })
+    
 
     return (
         <div className={`${Freckle.className} flex justify-center 
@@ -111,7 +113,7 @@ export default function LevelOne() {
                     priority
                     />
             </div>
-            <p className={`${Freckle.className} text-center level-one text-white mb-4`}>  Level 1 
+            <p className={`${Freckle.className} text-center level-one text-white mb-3`}>  Level 1 
             </p>
             <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1 score-container">
                 <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
@@ -129,7 +131,7 @@ export default function LevelOne() {
             </div>
 
          <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
-            <div className="bg-rock-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
+            <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                         src="/images/icon-rock.svg"
@@ -140,7 +142,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-paper-1 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]">
+                <div className="bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]">
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
                         src="/images/icon-paper.svg"
@@ -151,7 +153,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-scissors-2 w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
+                <div className="bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
                 top-[100px]">
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
@@ -163,7 +165,7 @@ export default function LevelOne() {
                     />
                 </div>
             </div>
-            <div className={`${Barlow.className} flex justify-center items-center mt-48 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl button`}>
+            <div className={`${Barlow.className} flex justify-center items-center mt-44 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl button`}>
                 <button className="text-white p-2">RULES</button>
             </div>
         </div>

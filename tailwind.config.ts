@@ -23,7 +23,7 @@ const config: Config = {
         'scissors': '1px 5px hsl(30.34, 80.91%, 43.14%)',
         'lizard': '1px 5px hsl(261, 73%, 60%)',
         'spock': '1px 5px hsl(189, 59%, 53%)',
-        'insets': '1px 5px inset hsl(228.89, 24.77%, 78.63%)'
+        'insets': '1px 4px inset hsl(228.89, 24.77%, 78.63%)'
       },
       colors: {
         'background': " hsl(214, 47%, 23%)",
