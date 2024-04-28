@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import Link from "next/link"
 import {useState, useEffect} from "react";
 
 export default function LevelOne() {
@@ -165,8 +166,8 @@ export default function LevelOne() {
                     />
                 </div>
             </div>
-            <div className={`${Barlow.className} flex justify-center items-center mt-44 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl button`}>
-                <button className="text-white p-2">RULES</button>
+            <div className={`${Barlow.className} flex justify-center items-center mt-44 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl hover:bg-white hover:border-dark text-white transition ease-in-out delay-150 hover:text-dark-text button`}>
+                <Link href ={"/rules"} className="p-2"> RULES </Link>
             </div>
         </div>
     ) 
