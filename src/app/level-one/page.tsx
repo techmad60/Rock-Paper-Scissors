@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Link from "next/link"
+import ScoreBoard from "@/components/ScoreBoard";
 import {useState, useEffect} from "react";
 
 export default function LevelOne() {
@@ -116,22 +117,9 @@ export default function LevelOne() {
             </div>
             <p className={`${Freckle.className} text-center level-one text-white mb-3`}>  Level 1 
             </p>
-            <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1 score-container">
-                <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
-                    <div className={` ${Barlow.className} text-white font-semibold text-xl leading-4 pl-4`}> 
-                        <p className="word">ROCK</p>
-                        <p className="word">PAPER</p>
-                        <p className="word">SCISSORS</p>
-                    </div>
-
-                    <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px] score-bg">
-                        <p className="text-xs text-score-text tracking-wider font-semibold score-title">SCORE</p>
-                        <p className="text-4xl font-bold text-dark-text score" >12</p>
-                    </div>
-                </div>
-            </div>
-
-         <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
+           
+           <ScoreBoard />
+           <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
             <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
