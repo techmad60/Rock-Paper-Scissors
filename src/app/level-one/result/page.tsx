@@ -2,7 +2,7 @@
 import { useEffect, useState} from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-
+import { Suspense } from 'react'
 import ScoreBoard from "@/components/ScoreBoard";
 
 
@@ -22,28 +22,31 @@ export default function Result() {
 
 
     return (
+
         <div className="min-h-screen bg-background flex flex-col">
             <ScoreBoard />
-            <div className="flex justify-between items-center text-white">
-                <div>
-                    <p>YOU PICKED: {userChoice}</p>
+            <Suspense > 
+                <div className="flex justify-between items-center text-white">
+                    <div>
+                        <p>YOU PICKED: {userChoice}</p>
 
+                    </div>
+                    <div className={userClassString}>
+                        <Image
+                            className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
+                            src={imageUrl}
+                            alt={userChoice || "Choice"}
+                            width={90}
+                            height={90}
+                            priority
+                        />
+                    <p>{userChoice}</p>
+                    </div>
+                    <div>
+                        <p>THE HOUSE PICKED: {computerChoice}</p>
+                    </div>
                 </div>
-                <div className={userClassString}>
-                    <Image
-                        className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
-                        src={imageUrl}
-                        alt={userChoice || "Choice"}
-                        width={90}
-                        height={90}
-                        priority
-                    />
-                  <p>{userChoice}</p>
-                </div>
-                <div>
-                    <p>THE HOUSE PICKED: {computerChoice}</p>
-                </div>
-            </div>
+            </Suspense> 
         </div>
     );
 }
