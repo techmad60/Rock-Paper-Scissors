@@ -4,14 +4,20 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import Link from "next/link"
 import ScoreBoard from "@/components/ScoreBoard";
+import RulesButton from "@/components/RulesButton";
 import {useState, useEffect} from "react";
+import {useRouter} from "next/navigation";
+import { useSearchParams } from 'next/navigation';
 
 export default function LevelOne() {
+    const router = useRouter();
+
+    const handleSelection = (choice: string) => {
+        router.push(`level-one/result?userChoice=${choice}`);
+      };
+
     gsap.registerPlugin(MotionPathPlugin);
-
-
     let tl = gsap.timeline();
     useGSAP (() => {
         tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
@@ -120,7 +126,7 @@ export default function LevelOne() {
            
            <ScoreBoard />
            <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
-            <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]">
+                <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock')}>
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                         src="/images/icon-rock.svg"
@@ -131,7 +137,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]">
+                <div className="bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]" onClick={() => handleSelection('paper')}>
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
                         src="/images/icon-paper.svg"
@@ -142,8 +148,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute 
-                top-[100px]">
+                <div className="bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]" onClick={() => handleSelection('scissors')}>
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
                         src="/images/icon-scissors.svg"
@@ -154,9 +159,7 @@ export default function LevelOne() {
                     />
                 </div>
             </div>
-            <div className={`${Barlow.className} flex justify-center items-center mt-44 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl hover:bg-white hover:border-dark text-white hover:text-dark-text button`}>
-                <Link href ={"/rules"} className="p-2"> RULES </Link>
-            </div>
+            <RulesButton/>
         </div>
     ) 
   }
