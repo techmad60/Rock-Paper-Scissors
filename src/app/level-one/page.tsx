@@ -6,16 +6,16 @@ import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ScoreBoard from "@/components/ScoreBoard";
 import RulesButton from "@/components/RulesButton";
-import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
+// import {useState, useEffect} from "react";
 
 export default function LevelOne() {
     const router = useRouter();
 
-    const handleSelection = (choice: string) => {
-        router.push(`level-one/result?userChoice=${choice}`);
-      };
+    const handleSelection = (choice: string, classString: string, imageSrc: string) => {
+        router.push(`level-one/result?userChoice=${choice}&userClassString=${classString}&userImageSrc=${imageSrc}`);
+    };
 
     gsap.registerPlugin(MotionPathPlugin);
     let tl = gsap.timeline();
@@ -126,7 +126,7 @@ export default function LevelOne() {
            
            <ScoreBoard />
            <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
-                <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock')}>
+                <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock', 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]', '/images/icon-rock.svg')}>
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                         src="/images/icon-rock.svg"
@@ -137,7 +137,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]" onClick={() => handleSelection('paper')}>
+                <div className="bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]"  onClick={() => handleSelection('paper', 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]', '/images/icon-paper.svg')}>
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
                         src="/images/icon-paper.svg"
@@ -148,7 +148,7 @@ export default function LevelOne() {
                     />
                 </div>
                 
-                <div className="bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]" onClick={() => handleSelection('scissors')}>
+                <div className="bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]" onClick={() => handleSelection('scissors', 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]', '/images/icon-scissors.svg')}>
                     <Image
                         className="p-6 bg-white rounded-full shadow-insets"
                         src="/images/icon-scissors.svg"
