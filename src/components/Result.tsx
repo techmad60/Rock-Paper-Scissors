@@ -1,4 +1,4 @@
-// components/Result.tsx
+
 'use client'
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
@@ -8,7 +8,7 @@ export default function Result() {
     const searchParams = useSearchParams();
     const userChoice = searchParams.get('userChoice');
     const userClassString = searchParams.get('userClassString') || '';
-    const imageUrl = searchParams.get('imageUrl') || '';
+    const imageUrl = searchParams.get('userImageUrl') || '';
 
     const generateComputerChoice = () => {
         const choices = ['rock', 'paper', 'scissors'];
@@ -33,7 +33,6 @@ export default function Result() {
                         height={90}
                         priority
                     />
-                    <p>{userChoice}</p>
                 </div>
                 <div>
                     <p>THE HOUSE PICKED: {computerChoice}</p>
