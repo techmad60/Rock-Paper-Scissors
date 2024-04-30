@@ -7,8 +7,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ScoreBoard from "@/components/ScoreBoard";
 import RulesButton from "@/components/RulesButton";
 import {useRouter} from "next/navigation";
-// import { useSearchParams } from 'next/navigation';
-// import {useState, useEffect} from "react";
+
 
 export default function LevelOne() {
     const router = useRouter();
@@ -16,19 +15,17 @@ export default function LevelOne() {
     const handleSelection = (choice: string) => {
         let classString = '';
         let imageUrl = '';
-    
-        // Determine classString and imageUrl based on the choice
         switch (choice) {
             case 'rock':
-                classString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute';
+                classString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]';
                 imageUrl = '/images/icon-rock.svg';
                 break;
             case 'paper':
-                classString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute';
+                classString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]';
                 imageUrl = '/images/icon-paper.svg';
                 break;
             case 'scissors':
-                classString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute';
+                classString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]';
                 imageUrl = '/images/icon-scissors.svg';
                 break;
             default:
@@ -36,9 +33,7 @@ export default function LevelOne() {
         }
          router.push(`level-one/result?userChoice=${choice}&userClassString=${classString}&userImageUrl=${imageUrl}`);
     };
-
     
-   
     gsap.registerPlugin(MotionPathPlugin);
     let tl = gsap.timeline();
     useGSAP (() => {
