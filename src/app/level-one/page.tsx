@@ -12,27 +12,57 @@ import {useRouter} from "next/navigation";
 export default function LevelOne() {
     const router = useRouter();
 
-    const handleSelection = (choice: string) => {
-        let classString = '';
+    const handleSelection = (userChoice: string) => {
+        let userClassString = '';
         let imageUrl = '';
-        switch (choice) {
+        let computerChoice = '';
+        let computerClassString = '';
+        let computerImageUrl = '';
+    
+        // Determine classString and imageUrl based on the user's choice
+        switch (userChoice) {
             case 'rock':
-                classString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock';
+                userClassString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock';
                 imageUrl = '/images/icon-rock.svg';
                 break;
             case 'paper':
-                classString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper';
+                userClassString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper';
                 imageUrl = '/images/icon-paper.svg';
                 break;
             case 'scissors':
-                classString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors';
+                userClassString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors';
                 imageUrl = '/images/icon-scissors.svg';
                 break;
             default:
                 break;
         }
-         router.push(`level-one/result?userChoice=${choice}&userClassString=${classString}&userImageUrl=${imageUrl}`);
+    
+        // Generate the computer's choice
+        const choices = ['rock', 'paper', 'scissors'];
+        computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    
+        // Determine classString and imageUrl based on the computer's choice
+        switch (computerChoice) {
+            case 'rock':
+                computerClassString = 'bg-rock-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock';
+                computerImageUrl = '/images/icon-rock.svg';
+                break;
+            case 'paper':
+                computerClassString = 'bg-paper-2 w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper';
+                computerImageUrl = '/images/icon-paper.svg';
+                break;
+            case 'scissors':
+                computerClassString = 'bg-scissors-2 w-[120px] h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors';
+                computerImageUrl = '/images/icon-scissors.svg';
+                break;
+            default:
+                break;
+        }
+    
+        // Navigate to the result page with both choices and their associated styles
+        router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}`);
     };
+    
     
     gsap.registerPlugin(MotionPathPlugin);
     let tl = gsap.timeline();
