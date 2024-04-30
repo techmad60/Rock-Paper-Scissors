@@ -17,15 +17,15 @@ export default function LevelOne() {
         let imageUrl = '';
         switch (choice) {
             case 'rock':
-                classString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]';
+                classString = 'bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock';
                 imageUrl = '/images/icon-rock.svg';
                 break;
             case 'paper':
-                classString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper absolute top-[-70px] left-[160px]';
+                classString = 'bg-paper-2 hover:bg-paper-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px] border-paper-2 shadow-paper';
                 imageUrl = '/images/icon-paper.svg';
                 break;
             case 'scissors':
-                classString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors absolute top-[100px]';
+                classString = 'bg-scissors-2 hover:bg-scissors-1 w-[120px] cursor-pointer h-[120px]  icon rounded-full flex items-center justify-center border-[14px] border-scissors-2 shadow-scissors';
                 imageUrl = '/images/icon-scissors.svg';
                 break;
             default:
