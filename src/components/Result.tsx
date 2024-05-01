@@ -6,6 +6,7 @@ import PlayAgain from './PlayAgain';
 import { useSearchParams } from 'next/navigation';
 import { Barlow } from '@/fonts/fonts';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const determineWinner = (userChoice: string, computerChoice: string): string => {
     if (userChoice === computerChoice) {
@@ -40,6 +41,7 @@ export default function Result() {
     const computerClassString = searchParams.get('computerClassString') || '';
     const computerImageUrl = searchParams.get('computerImageUrl') || '';
     const winner = determineWinner(userChoice, computerChoice);
+    const router = useRouter();
 
     const [score, setScore] = useState(0);
 
@@ -47,6 +49,11 @@ export default function Result() {
         // Update score when component mounts
         setScore(prevScore => updateScore(winner, prevScore));
     }, [winner]);
+
+    const playAgain = () => {
+        // Reset animation state and navigate back to level-one route
+        router.push('/level-one');
+    };
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
@@ -83,7 +90,7 @@ export default function Result() {
 
             </div>
             <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
-            <PlayAgain />
+            <PlayAgain playAgain={playAgain}/>
             <RulesButton />
         </div>
     );

@@ -1,6 +1,6 @@
 "use client";
 import { Freckle, Barlow } from '@/fonts/fonts'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -17,6 +17,18 @@ export default function LevelOne({ onResult }: LevelOneProps) {
     const router = useRouter();
     const playedOnceRef = useRef(false);
     const [score, setScore] = useState(0); // Initialize score state
+    const [animationPlayed, setAnimationPlayed] = useState(false);
+
+     // Function to handle animation
+     const playAnimation = () => {
+        if (playedOnceRef.current) return;
+        playedOnceRef.current = true;
+        setAnimationPlayed(true); 
+    };
+
+     useEffect(() => {
+        playAnimation();
+    }, []);
 
     const handleSelection = (userChoice: string) => {
         let userClassString = '';
