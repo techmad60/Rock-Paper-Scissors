@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ScoreBoard from "@/components/ScoreBoard";
 import RulesButton from '@/components/RulesButton';
+import PlayAgain from './PlayAgain';
 import { useSearchParams } from 'next/navigation';
 import { Barlow } from '@/fonts/fonts';
 import Image from 'next/image';
@@ -14,7 +15,7 @@ const determineWinner = (userChoice: string, computerChoice: string): string => 
         (userChoice === 'paper' && computerChoice === 'rock') ||
         (userChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        return 'You win!';
+        return 'You Win!';
     } else {
         return 'You Loose!';
     }
@@ -82,6 +83,7 @@ export default function Result() {
 
             </div>
             <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
+            <PlayAgain />
             <RulesButton />
         </div>
     );
