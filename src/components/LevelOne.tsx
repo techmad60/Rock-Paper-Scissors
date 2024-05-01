@@ -1,6 +1,6 @@
 "use client";
 import { Freckle, Barlow } from '@/fonts/fonts'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -15,7 +15,7 @@ interface LevelOneProps {
 
 export default function LevelOne({ onResult }: LevelOneProps) {
     const router = useRouter();
-    const [playedOnce, setPlayedOnce] = useState(false);
+    const playedOnceRef = useRef(false);
     const [score, setScore] = useState(0); // Initialize score state
 
     const handleSelection = (userChoice: string) => {
@@ -68,8 +68,6 @@ export default function LevelOne({ onResult }: LevelOneProps) {
          // Call the onResult function with both user and computer choices
          onResult(userChoice, computerChoice);
 
-         setPlayedOnce(true)
-    
         // Navigate to the result page with both choices and their associated styles
         router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}`);
     };
@@ -78,7 +76,7 @@ export default function LevelOne({ onResult }: LevelOneProps) {
     gsap.registerPlugin(MotionPathPlugin);
     let tl = gsap.timeline();
     useGSAP (() => {
-        if (!playedOnce) {
+        if (!playedOnceRef.current) {
             tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
                 y: 0,
                 scale: 1,
@@ -163,10 +161,12 @@ export default function LevelOne({ onResult }: LevelOneProps) {
                 ease: "bounce",
                 stagger: 0.2,
             });
+
+            playedOnceRef.current = true;
         }
         
 
-    })
+    }, [])
     
 
     return (
