@@ -86,8 +86,9 @@ export default function LevelOne({ onResult }: LevelOneProps) {
     
     
     gsap.registerPlugin(MotionPathPlugin);
-    let tl = gsap.timeline();
+    
     useGSAP (() => {
+        let tl = gsap.timeline();
         if (!playedOnceRef.current) {
             tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
                 y: 0,
