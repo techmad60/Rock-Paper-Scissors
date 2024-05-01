@@ -15,6 +15,7 @@ interface LevelOneProps {
 
 export default function LevelOne({ onResult }: LevelOneProps) {
     const router = useRouter();
+    const [playedOnce, setPlayedOnce] = useState(false);
     const [score, setScore] = useState(0); // Initialize score state
 
     const handleSelection = (userChoice: string) => {
@@ -66,6 +67,8 @@ export default function LevelOne({ onResult }: LevelOneProps) {
 
          // Call the onResult function with both user and computer choices
          onResult(userChoice, computerChoice);
+
+         setPlayedOnce(true)
     
         // Navigate to the result page with both choices and their associated styles
         router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}`);
@@ -75,90 +78,93 @@ export default function LevelOne({ onResult }: LevelOneProps) {
     gsap.registerPlugin(MotionPathPlugin);
     let tl = gsap.timeline();
     useGSAP (() => {
-        tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce.out",
-        });
-        tl.fromTo('.level-one', {y: -400,}, {
-            y: 0,
-            scale: 1,
-            rotate: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.5,
-        });
-        tl.fromTo('.score-container', {opacity: 0, scale: 3}, {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.word', {opacity: 0, scale: 3, x: 20}, {
-            y: 0,
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.score-bg', {opacity: 0, scale: 3, x: -20}, {
-            y: 0,
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.score-title', {opacity: 0, scale: 3, x: -20}, {
-            y: 0,
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.score', {opacity: 0, scale: 3, x: -20}, {
-            y: 0,
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.bg-triangle', {opacity: 0, scale: 3, x: -20}, {
-            y: 0,
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.25,
-        });
-        tl.fromTo('.icon', {opacity: 0}, {
-            ease: "bounce",
-            duration: 1,
-            opacity: 1,
-            rotation: 360,
-            stagger: 0.2,
-          });
-        tl.fromTo('.button', {opacity: 0, scale: 2}, {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "bounce",
-            stagger: 0.2,
-        });
+        if (!playedOnce) {
+            tl.fromTo('.avatar', {y: 20, rotate: 360, scale: 0, opacity: 0}, {
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce.out",
+            });
+            tl.fromTo('.level-one', {y: -400,}, {
+                y: 0,
+                scale: 1,
+                rotate: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.5,
+            });
+            tl.fromTo('.score-container', {opacity: 0, scale: 3}, {
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.word', {opacity: 0, scale: 3, x: 20}, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.score-bg', {opacity: 0, scale: 3, x: -20}, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.score-title', {opacity: 0, scale: 3, x: -20}, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.score', {opacity: 0, scale: 3, x: -20}, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.bg-triangle', {opacity: 0, scale: 3, x: -20}, {
+                y: 0,
+                x: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.25,
+            });
+            tl.fromTo('.icon', {opacity: 0}, {
+                ease: "bounce",
+                duration: 1,
+                opacity: 1,
+                rotation: 360,
+                stagger: 0.2,
+              });
+            tl.fromTo('.button', {opacity: 0, scale: 2}, {
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "bounce",
+                stagger: 0.2,
+            });
+        }
+        
 
     })
     
