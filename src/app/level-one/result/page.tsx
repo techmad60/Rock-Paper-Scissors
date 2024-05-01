@@ -1,4 +1,5 @@
 // pages/level-one/result.tsx
+"use client"
 
 import { Suspense } from 'react';
 import Result from '@/components/Result';

@@ -1,10 +1,10 @@
-
-'use client'
-import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+"use client"
+import React, { useState, useEffect } from 'react';
 import ScoreBoard from "@/components/ScoreBoard";
 import RulesButton from '@/components/RulesButton';
+import { useSearchParams } from 'next/navigation';
 import { Barlow } from '@/fonts/fonts';
+import Image from 'next/image';
 
 const determineWinner = (userChoice: string, computerChoice: string): string => {
     if (userChoice === computerChoice) {
@@ -16,11 +16,19 @@ const determineWinner = (userChoice: string, computerChoice: string): string => 
     ) {
         return 'You win!';
     } else {
-        return 'The house wins!';
+        return 'You Loose!';
     }
 };
 
-
+const updateScore = (result: string, currentScore: number): number => {
+    if (result === 'You win!') {
+        return currentScore + 3;
+    } else if (result === 'You Loose!') {
+        return currentScore - 1;
+    } else {
+        return currentScore + 1;
+    }
+};
 
 export default function Result() {
     const searchParams = useSearchParams();
@@ -32,11 +40,18 @@ export default function Result() {
     const computerImageUrl = searchParams.get('computerImageUrl') || '';
     const winner = determineWinner(userChoice, computerChoice);
 
+    const [score, setScore] = useState(0);
+
+    useEffect(() => {
+        // Update score when component mounts
+        setScore(prevScore => updateScore(winner, prevScore));
+    }, [winner]);
+
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <ScoreBoard />
-            <div className="flex justify-between items-center text-white mt-8">
-                <div className='flex flex-col justify-center items-center gap-8'> 
+            <ScoreBoard score={score} />
+            <div className="flex justify-between items-center text-white mt-16">
+                <div className='flex flex-col justify-center items-center gap-8'>
                     <div className={userClassString}>
                         <Image
                             className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
@@ -50,8 +65,8 @@ export default function Result() {
 
                     <p className={`${Barlow.className} font-semibold text-xl tracking-wider`}>YOU PICKED</p>
                 </div>
-               
-               <div className='flex flex-col justify-center items-center text-center gap-8'>
+
+                <div className='flex flex-col justify-center items-center text-center gap-8'>
                     <div className={computerClassString}>
                         <Image
                             className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
@@ -63,11 +78,11 @@ export default function Result() {
                         />
                     </div>
                     <p className={`${Barlow.className} font-semibold text-xl tracking-wider`}>THE HOUSE PICKED</p>
-               </div>  
-              
+                </div>
+
             </div>
-            <p className='text-center mt-16 text-white'>{winner}</p>
-            <RulesButton/> 
+            <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
+            <RulesButton />
         </div>
     );
 }
