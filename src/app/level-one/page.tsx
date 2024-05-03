@@ -13,12 +13,14 @@ export default function LevelOne() {
     
     const router = useRouter();
     const [userChoice, setUserChoice] = useState('');
-    const initialScore = parseInt(localStorage.getItem('score') ?? '0', 10);
+    const initialScore = typeof window !== 'undefined' ? parseInt(localStorage.getItem('score') ?? '0', 10) : 0;
     const [score, setScore] = useState(initialScore);
     const [computerChoice, setComputerChoice] = useState(''); 
     
     useEffect(() => {
-        localStorage.setItem('score', String(score));
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('score', String(score));
+        }
     }, [score]);
 
     const determineWinner = (userChoice: string, computerChoice: string): string => {
