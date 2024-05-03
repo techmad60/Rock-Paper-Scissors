@@ -1,36 +1,11 @@
 "use client"
-import React, { useState, useEffect } from 'react';
 import ScoreBoard from "@/components/ScoreBoard";
 import RulesButton from '@/components/RulesButton';
 import PlayAgain from './PlayAgain';
 import { useSearchParams } from 'next/navigation';
 import { Barlow } from '@/fonts/fonts';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-
-const determineWinner = (userChoice: string, computerChoice: string): string => {
-    if (userChoice === computerChoice) {
-        return 'It\'s a tie!';
-    } else if (
-        (userChoice === 'rock' && computerChoice === 'scissors') ||
-        (userChoice === 'paper' && computerChoice === 'rock') ||
-        (userChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-        return 'You Win!';
-    } else {
-        return 'You Loose!';
-    }
-};
-
-const updateScore = (result: string, currentScore: number): number => {
-    if (result === 'You win!') {
-        return currentScore + 3;
-    } else if (result === 'You Loose!') {
-        return currentScore - 1;
-    } else {
-        return currentScore + 1;
-    }
-};
+;
 
 export default function Result() {
     const searchParams = useSearchParams();
@@ -40,24 +15,18 @@ export default function Result() {
     const computerChoice = searchParams.get('computerChoice') || '';
     const computerClassString = searchParams.get('computerClassString') || '';
     const computerImageUrl = searchParams.get('computerImageUrl') || '';
-    const winner = determineWinner(userChoice, computerChoice);
-    const router = useRouter();
+    const winner = searchParams.get('winner') || '';
+    const score = parseInt(searchParams.get("score") || "0", 10);
 
-    const [score, setScore] = useState(0);
+    // console.log("setScore from searchParams:", searchParams.get('setScore'));
 
-    useEffect(() => {
-        // Update score when component mounts
-        setScore(prevScore => updateScore(winner, prevScore));
-    }, [winner]);
+ 
 
-    const playAgain = () => {
-        // Reset animation state and navigate back to level-one route
-        router.push('/level-one');
-    };
+    // const scoreAsNumber = parseInt(score, 10);
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <ScoreBoard score={score} />
+            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score} />
             <div className="flex justify-between items-center text-white mt-16">
                 <div className='flex flex-col justify-center items-center gap-8'>
                     <div className={userClassString}>
@@ -90,8 +59,35 @@ export default function Result() {
 
             </div>
             <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
-            <PlayAgain playAgain={playAgain}/>
+            <PlayAgain/>
             <RulesButton />
         </div>
     );
 }
+//import React, { useState, useEffect } from 'react';
+//import { useRouter } from 'next/navigation'
+//const router = useRouter();
+    // const [score, setScore] = useState(0);
+
+    // useEffect(() => {
+    //     // Update score when component mounts
+    //     setScore(prevScore => updateScore(winner, prevScore));
+    // }, [winner]);
+
+// const updateScore = (result: string, currentScore: number): number => {
+//     if (result === 'You Win!') {
+//         // If the user wins and the current score is 0, set the score to 3
+//         if (currentScore === 0) {
+//             return 3;
+//         } else {
+//             // Otherwise, increment the score by 3
+//             return currentScore + 3;
+//         }
+//     } else if (result === 'You Loose!' && currentScore > 0) {
+//         return currentScore - 1;
+//     } else if (result === 'It\'s a tie!') {
+//         return currentScore + 1;
+//     } else {
+//         return currentScore;
+//     }
+// };

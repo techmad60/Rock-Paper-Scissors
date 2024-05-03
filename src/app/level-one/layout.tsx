@@ -1,3 +1,5 @@
+
+
 export default function LevelOneLayout({
     children,
   }: {
@@ -5,7 +7,7 @@ export default function LevelOneLayout({
   }) {
     return (
       <section className="bg-background p-8 min-h-screen flex flex-col overflow-hidden">
-      {children}
+        {children}
       </section>
     )
   }
