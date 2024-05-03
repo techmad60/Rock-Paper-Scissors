@@ -2,19 +2,25 @@
 import { Freckle, Barlow } from '@/fonts/fonts'
 import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
-// import gsap from "gsap";
-// import { useGSAP } from "@gsap/react";
-// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ScoreBoard from "@/components/ScoreBoard";
+
 import RulesButton from "@/components/RulesButton";
 import {useRouter} from "next/navigation";
 
 
+
 export default function LevelOne() {
+    
     const router = useRouter();
     const [userChoice, setUserChoice] = useState('');
-    const [score, setScore] = useState(0);
-    const [computerChoice, setComputerChoice] = useState('');
+    const initialScore = parseInt(localStorage.getItem('score') ?? '0', 10);
+    const [score, setScore] = useState(initialScore);
+    const [computerChoice, setComputerChoice] = useState(''); 
+    
+    useEffect(() => {
+        localStorage.setItem('score', String(score));
+    }, [score]);
+
     const determineWinner = (userChoice: string, computerChoice: string): string => {
         if (userChoice === computerChoice) {
             return 'It\'s a tie!';
@@ -75,16 +81,17 @@ export default function LevelOne() {
         const winner = determineWinner(userChoice, computerChoice);
         let newScore = score;
         if (winner === "You Win!") {
-        if (score === 0) {
-            newScore = 3;
-        } else {
-            newScore = score + 3;
+         newScore = score + 3;
+        } else if (winner === "You Lose!") {
+            if (score <= 3 && score > 0) {
+                newScore = 0;
+            } else {
+                newScore = score - 3;
+            }
+        } else if (winner === "It's a tie!") {
+            newScore = score + 1;
         }
-    } else if (winner === "You Lose!" && score > 0) {
-        newScore = score - 1;
-    } else if (winner === "It's a tie!") {
-        newScore = score + 1;
-    }
+
     
 
         setUserChoice(userChoice);
@@ -134,3 +141,6 @@ export default function LevelOne() {
             <RulesButton/>
         </div>
 )}
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin";

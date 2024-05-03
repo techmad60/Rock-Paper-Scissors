@@ -1,5 +1,6 @@
 "use client"
 import ScoreBoard from "@/components/ScoreBoard";
+import ReplayButton from '@/components/ReplayButton';
 import RulesButton from '@/components/RulesButton';
 import PlayAgain from './PlayAgain';
 import { useSearchParams } from 'next/navigation';
@@ -17,12 +18,7 @@ export default function Result() {
     const computerImageUrl = searchParams.get('computerImageUrl') || '';
     const winner = searchParams.get('winner') || '';
     const score = parseInt(searchParams.get("score") || "0", 10);
-
-    // console.log("setScore from searchParams:", searchParams.get('setScore'));
-
- 
-
-    // const scoreAsNumber = parseInt(score, 10);
+   
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
@@ -59,8 +55,8 @@ export default function Result() {
 
             </div>
             <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
-            <PlayAgain/>
-            <RulesButton />
+            <PlayAgain score={score}/>
+            <ReplayButton />
         </div>
     );
 }

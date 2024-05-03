@@ -1,5 +1,7 @@
 "use client"
 import { Barlow } from "../fonts/fonts";
+import {useSearchParams} from "next/navigation";
+import { useState } from "react";
 
 interface ScoreBoardProps {
     userChoice: string;
@@ -25,7 +27,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
                 </div> */}
 
                 <div className=" text-gray-700 bg-white flex flex-col justify-center items-center border  rounded-sm w-[63px] h-[63px] score-bg">
-                    <p className="text-xs text-score-text tracking-wider font-semibold score-title"></p>
+                    <p className="text-xs text-score-text tracking-wider font-semibold score-title">SCORE</p>
                     <p className="text-4xl font-bold text-dark-text score" id="score">{score}</p>
                 </div>
             </div>
