@@ -83,17 +83,17 @@ export default function LevelOne() {
         const winner = determineWinner(userChoice, computerChoice);
         let newScore = score;
         if (winner === "You Win!") {
-         newScore = score + 3;
+            newScore += 3;
         } else if (winner === "You Lose!") {
             if (score <= 3 && score > 0) {
                 newScore = 0;
             } else {
-                newScore = score - 3;
+                newScore -= 3;
             }
         } else if (winner === "It's a tie!") {
-            newScore = score + 1;
+            newScore += 1;
         }
-
+        
     
 
         setUserChoice(userChoice);
