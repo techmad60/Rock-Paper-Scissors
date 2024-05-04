@@ -6,7 +6,7 @@ import PlayAgain from './PlayAgain';
 import { useSearchParams } from 'next/navigation';
 import { Barlow } from '@/fonts/fonts';
 import Image from 'next/image';
-;
+import Link from "next/link";
 
 export default function Result() {
     const searchParams = useSearchParams();
@@ -57,6 +57,9 @@ export default function Result() {
             <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
             <PlayAgain score={score}/>
             <ReplayButton />
+            <Link href={"/level-two"} className='flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500'>
+                <button className={` text-lizard-1 p-2 bg-white m-1 rounded-sm`}>Level two</button>
+            </Link>
         </div>
     );
 }

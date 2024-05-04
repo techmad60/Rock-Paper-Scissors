@@ -1,4 +1,4 @@
-export default function LevelOneLayout({
+export default function LevelTwoLayout({
     children,
   }: {
     children: React.ReactNode

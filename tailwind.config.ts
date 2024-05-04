@@ -12,7 +12,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "triangle":"url('/images/bg-triangle.svg')"
+        "triangle":"url('/images/bg-triangle.svg')",
+        "square":"url('/images/bg-square.svg')",
+        "pentagon":"url('/images/bg-pentagon.svg')",
       },
       letterSpacing: {
         widest: "0.5em",
@@ -37,7 +39,7 @@ const config: Config = {
         'paper-2': " hsl(230, 89%, 65%)",
         'scissors-2': "hsl(40, 84%, 53%)",
         'lizard-2': "hsl(261, 72%, 63%)",
-        'spock-2': "(189, 58%, 57%)",
+        'spock-2': "hsl(189, 58%, 57%)",
         'dark-text' : "hsl(229, 25%, 31%)" ,
         'score-text': "hsl(229, 64%, 46%)",
         'header-outline': "hsl(217, 16%, 45%)"

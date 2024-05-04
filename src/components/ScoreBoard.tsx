@@ -18,6 +18,8 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
                     <p className="word">ROCK</p>
                     <p className="word">PAPER</p>
                     <p className="word">SCISSORS</p>
+                    <p className="word">LIZARD</p>
+                    <p className="word">SPOCK</p>
                 </div>
 
                 {/* <div>
