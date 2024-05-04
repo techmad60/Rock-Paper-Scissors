@@ -84,13 +84,14 @@ export default function LevelOne() {
         let newScore = score;
         if (winner === "You Win!") {
             newScore += 3;
-        } else if (winner === "You Lose!") {
+        }
+        if (winner === "You Loose!") {
             if (score <= 3 && score > 0) {
                 newScore = 0;
             } else {
                 newScore -= 3;
             }
-        } else if (winner === "It's a tie!") {
+        } if (winner === "It's a tie!") {
             newScore += 1;
         }
         
