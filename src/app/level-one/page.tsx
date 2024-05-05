@@ -5,14 +5,15 @@ import Image from "next/image";
 import ScoreBoard from "@/components/ScoreBoard";
 
 import RulesButton from "@/components/RulesButton";
-import {useRouter} from "next/navigation";
+import {useRouter, usePathname} from "next/navigation";
 
 
 
 export default function LevelOne() {
-    
+    const pathname = usePathname();
     const router = useRouter();
     const [userChoice, setUserChoice] = useState('');
+    const [result, setResult] = useState(false);
     const initialScore = typeof window !== 'undefined' ? parseInt(localStorage.getItem('score') ?? '0', 10) : 0;
     const [score, setScore] = useState(initialScore);
     const [computerChoice, setComputerChoice] = useState(''); 
@@ -79,34 +80,38 @@ export default function LevelOne() {
         const computerChoice = Object.keys(computerChoices)[Math.floor(Math.random() * Object.keys(computerChoices).length)];
         const computerClassString = computerChoices[computerChoice].classString + ' w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-' + computerChoice + '-2 shadow-' + computerChoice;
         const computerImageUrl = computerChoices[computerChoice].imageUrl;
-
         const winner = determineWinner(userChoice, computerChoice);
+      
         let newScore = score;
+        
         if (winner === "You Win!") {
             newScore += 3;
         }
         if (winner === "You Loose!") {
-            if (score <= 3 && score >= 0  ) {
+            if (score <= 3 && score >= 0) {
                 newScore = 0;
             } else {
                 newScore -= 3;
             }
-        } if (winner === "It's a tie!") {
+        }
+        if (winner === "It's a tie!") {
             newScore += 1;
         }
-        
-    
-
         setUserChoice(userChoice);
         setComputerChoice(computerChoice);
         setScore(newScore);
-        router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
+
+        console.log("Level-one :", result);
+
+        router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}&result=true`);
+    // Delay of 4 seconds
     };
+
 
     return (
         <div className={`${Freckle.className} flex justify-center 
         flex-col`}>
-           <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}/>
+           <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score} result={result}/>
            <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
                 <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock')}>
                     <Image
@@ -143,7 +148,8 @@ export default function LevelOne() {
             </div>
             <RulesButton/>
         </div>
-)}
+    )
+}
 // import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";

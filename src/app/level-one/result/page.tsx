@@ -3,11 +3,11 @@
 import { Suspense } from 'react';
 import Result from '@/components/Result';
 import {useRouter} from 'next/navigation';
+import {useState}  from 'react';
 import ReplayButton from '@/components/ReplayButton';
 import PlayAgain from '@/components/PlayAgain';
 
 export default function ResultPage() {
-
   const router = useRouter()
 
   const handleReplay = () => {
@@ -18,15 +18,11 @@ export default function ResultPage() {
 const playAgain = () => {
   router.push(`/level-one`);
 }
-//   const playagain = () => {
-//     localStorage.setItem('score', '0');
-//     router.refresh();
-//     router.push('/level-one'); // Reload the page to reset the score
-// };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Result />
-      <PlayAgain onClick={playAgain}/>
+      <PlayAgain onClick={playAgain} />
       <ReplayButton onClick={handleReplay}/>
     </Suspense>
   );
