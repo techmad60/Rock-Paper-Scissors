@@ -1,11 +1,12 @@
-// pages/level-two/result.tsx
+// pages/level-one/result.tsx
 "use client"
 import { Suspense } from 'react';
 import Result from '@/components/Result';
 import {useRouter} from 'next/navigation';
 import ReplayButton from '@/components/ReplayButton';
+import PlayAgain from '@/components/PlayAgain';
 
-export default function ResultPageTwo() {
+export default function ResultPage() {
 
   const router = useRouter()
 
@@ -14,9 +15,18 @@ export default function ResultPageTwo() {
     router.refresh();
     router.push('/level-two'); // Reload the page to reset the score
 };
+const playAgain = () => {
+  router.push(`/level-two`);
+}
+//   const playagain = () => {
+//     localStorage.setItem('score', '0');
+//     router.refresh();
+//     router.push('/level-one'); // Reload the page to reset the score
+// };
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Result/>
+      <Result />
+      <PlayAgain onClick={playAgain}/>
       <ReplayButton onClick={handleReplay}/>
     </Suspense>
   );
