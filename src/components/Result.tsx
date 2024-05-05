@@ -68,30 +68,3 @@ export default function Result() {
         </div>
     );
 }
-//import React, { useState, useEffect } from 'react';
-//import { useRouter } from 'next/navigation'
-//const router = useRouter();
-    // const [score, setScore] = useState(0);
-
-    // useEffect(() => {
-    //     // Update score when component mounts
-    //     setScore(prevScore => updateScore(winner, prevScore));
-    // }, [winner]);
-
-// const updateScore = (result: string, currentScore: number): number => {
-//     if (result === 'You Win!') {
-//         // If the user wins and the current score is 0, set the score to 3
-//         if (currentScore === 0) {
-//             return 3;
-//         } else {
-//             // Otherwise, increment the score by 3
-//             return currentScore + 3;
-//         }
-//     } else if (result === 'You Loose!' && currentScore > 0) {
-//         return currentScore - 1;
-//     } else if (result === 'It\'s a tie!') {
-//         return currentScore + 1;
-//     } else {
-//         return currentScore;
-//     }
-// };

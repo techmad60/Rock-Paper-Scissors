@@ -1,16 +1,16 @@
 "use client";
 import { Freckle, Barlow } from '@/fonts/fonts'
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import ScoreBoard from "@/components/ScoreBoard";
-
 import RulesButton from "@/components/RulesButton";
 import {useRouter, usePathname} from "next/navigation";
 
 
 
 export default function LevelOne() {
-    const pathname = usePathname();
     const router = useRouter();
     const [userChoice, setUserChoice] = useState('');
     const [result, setResult] = useState(false);
@@ -24,6 +24,33 @@ export default function LevelOne() {
         }
     }, [score]);
 
+    useGSAP(() => {
+        let tl = gsap.timeline()
+        tl.fromTo('.parent', {scale: 0, opacity: 0}, {
+          color: "hsl(230, 89%, 62%)",
+          scale: 1,
+          y: 20,
+          opacity: 1,
+          duration: 1,
+          ease: "bounce",
+          repeat: 1,
+        });
+    
+        // tl.to('.icon', {
+        //   motionPath: {
+        //     path: "#path",
+        //     autoRotate: true,
+        //     align: "#path",
+        //     alignOrigin: [0.5, 0.5],
+        //   },
+        //   ease: "none",
+        //   duration: 1,
+        //   stagger: 0.2,
+        //   repeat: -1,
+        // });
+    
+      }, ); 
+
     const determineWinner = (userChoice: string, computerChoice: string): string => {
         if (userChoice === computerChoice) {
             return 'It\'s a tie!';
@@ -34,7 +61,7 @@ export default function LevelOne() {
         ) {
             return 'You Win!';
         } else {
-            return 'You Loose!';
+            return 'You Lose!';
         }
     };
 
@@ -87,7 +114,7 @@ export default function LevelOne() {
         if (winner === "You Win!") {
             newScore += 3;
         }
-        if (winner === "You Loose!") {
+        if (winner === "You Lose!") {
             if (score <= 3 && score >= 0) {
                 newScore = 0;
             } else {
@@ -110,7 +137,7 @@ export default function LevelOne() {
 
     return (
         <div className={`${Freckle.className} flex justify-center 
-        flex-col`}>
+        flex-col parent`}>
            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score} result={result}/>
            <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
                 <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock')}>
@@ -150,6 +177,3 @@ export default function LevelOne() {
         </div>
     )
 }
-// import gsap from "gsap";
-// import { useGSAP } from "@gsap/react";
-// import { MotionPathPlugin } from "gsap/MotionPathPlugin";

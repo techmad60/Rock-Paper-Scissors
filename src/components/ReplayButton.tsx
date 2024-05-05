@@ -16,9 +16,3 @@ export default function ReplayButton ({onClick}: ReplayButtonProps) {
     </div>
     )
 }
-
-    // const handleReplay = () => {
-    //     localStorage.setItem('score', '0');
-    //     router.refresh();
-    //     router.push('/level-one'); // Reload the page to reset the score
-    // };

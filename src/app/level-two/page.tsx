@@ -103,7 +103,7 @@ export default function LevelTwo() {
         if (winner === "You Win!") {
             newScore += 3;
         }
-        if (winner === "You Loose!") {
+        if (winner === "You Lose!") {
             if (score <= 3 && score >= 0) {
                 newScore = 0;
             } else {
