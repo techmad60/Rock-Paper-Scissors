@@ -31,12 +31,11 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
     }, [score, result]);
     useGSAP(() => {
         let tl = gsap.timeline()
-        tl.fromTo('.score', { opacity: 0, y: 20}, {
-          y: 0,
+        tl.fromTo('.score', { opacity: 0, scale: 3}, {
+          scale: 1,
           opacity: 1,
           duration: 1,
           ease: "bounce",
-          repeat: 1,
         });
     
         // tl.to('.icon', {

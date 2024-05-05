@@ -26,29 +26,16 @@ export default function LevelOne() {
 
     useGSAP(() => {
         let tl = gsap.timeline()
-        tl.fromTo('.parent', {scale: 0, opacity: 0}, {
-          color: "hsl(230, 89%, 62%)",
-          scale: 1,
-          y: 20,
-          opacity: 1,
-          duration: 1,
-          ease: "bounce",
-          repeat: 1,
+        tl.fromTo('.icon-container', { opacity: 0, x: 20}, {
+            opacity: 1,
+            x: 0
         });
-    
-        // tl.to('.icon', {
-        //   motionPath: {
-        //     path: "#path",
-        //     autoRotate: true,
-        //     align: "#path",
-        //     alignOrigin: [0.5, 0.5],
-        //   },
-        //   ease: "none",
-        //   duration: 1,
-        //   stagger: 0.2,
-        //   repeat: -1,
-        // });
-    
+        tl.fromTo('.icon', { opacity: 0}, {
+            opacity: 1,
+            rotate: 360,
+            stagger: 0.5
+        });
+     
       }, ); 
 
     const determineWinner = (userChoice: string, computerChoice: string): string => {
@@ -140,7 +127,7 @@ export default function LevelOne() {
         flex-col parent`}>
            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score} result={result}/>
            <div className="bg-triangle bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center relative w-[250px] h-[250px] top-36 bg-contain"> 
-                <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px]" onClick={() => handleSelection('rock')}>
+                <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px] right-[160px] icon-container" onClick={() => handleSelection('rock')}>
                     <Image
                         className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                         src="/images/icon-rock.svg"
