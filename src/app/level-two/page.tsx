@@ -117,7 +117,7 @@ export default function LevelTwo() {
         setUserChoice(userChoice);
         setComputerChoice(computerChoice);
         setScore(newScore);
-        router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
+        router.push(`level-two/result-two?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
     };
 
     return (
