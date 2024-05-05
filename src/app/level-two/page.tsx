@@ -3,7 +3,6 @@ import { Freckle, Barlow } from '@/fonts/fonts'
 import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import ScoreBoard from "@/components/ScoreBoard";
-
 import RulesButton from "@/components/RulesButton";
 import {useRouter} from "next/navigation";
 
@@ -63,7 +62,7 @@ export default function LevelTwo() {
                 imageUrl: '/images/icon-lizard.svg'
             },
             spock: {
-                classString: 'bg-lizard-2 hover:bg-spock-1',
+                classString: 'bg-spock-2 hover:bg-spock-1',
                 imageUrl: '/images/icon-spock.svg'
             }
         };
@@ -104,7 +103,7 @@ export default function LevelTwo() {
             newScore += 3;
         }
         if (winner === "You Loose!") {
-            if (score <= 3 && score > 0) {
+            if (score <= 3 && score >= 0) {
                 newScore = 0;
             } else {
                 newScore -= 3;
@@ -118,7 +117,7 @@ export default function LevelTwo() {
         setUserChoice(userChoice);
         setComputerChoice(computerChoice);
         setScore(newScore);
-        router.push(`level-two/result-two?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
+        router.push(`level-one/result?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
     };
 
     return (

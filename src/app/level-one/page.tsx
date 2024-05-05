@@ -86,7 +86,7 @@ export default function LevelOne() {
             newScore += 3;
         }
         if (winner === "You Loose!") {
-            if (score <= 3 && score > 0) {
+            if (score <= 3 && score >= 0  ) {
                 newScore = 0;
             } else {
                 newScore -= 3;
