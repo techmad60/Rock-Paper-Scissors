@@ -12,6 +12,7 @@ export default function LevelTwo() {
     
     const router = useRouter();
     const [userChoice, setUserChoice] = useState('');
+    const [result, setResult] = useState(false);
     const initialScore = typeof window !== 'undefined' ? parseInt(localStorage.getItem('score') ?? '0', 10) : 0;
     const [score, setScore] = useState(initialScore);
     const [computerChoice, setComputerChoice] = useState(''); 
@@ -117,13 +118,13 @@ export default function LevelTwo() {
         setUserChoice(userChoice);
         setComputerChoice(computerChoice);
         setScore(newScore);
-        router.push(`level-two/result-two?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}`);
+        router.push(`level-two/result-two?userChoice=${userChoice}&userClassString=${userClassString}&userImageUrl=${imageUrl}&computerChoice=${computerChoice}&computerClassString=${computerClassString}&computerImageUrl=${computerImageUrl}&winner=${winner}&score=${newScore}&result=true`);
     };
 
     return (
         <div className={`${Freckle.className} flex justify-center 
         flex-col`}>
-           <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}/>
+           <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score} result={result}/>
            <div className="bg-pentagon bg-no-repeat flex flex-col justify-center items-center self-center justify-self-center  relative w-[250px] h-[250px] top-36 bg-contain"> 
                 <div className="bg-rock-2 hover:bg-rock-1 w-[120px] cursor-pointer h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-rock-2 shadow-rock absolute top-[-70px]" onClick={() => handleSelection('rock')}>
                     <Image
