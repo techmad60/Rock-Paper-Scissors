@@ -1,5 +1,6 @@
 import {useRouter} from "next/navigation";
 import { Barlow } from "@/fonts/fonts";
+import { FaArrowRotateRight } from 'react-icons/fa6';
 
 interface ReplayButtonProps {
     onClick: () => void;
@@ -7,12 +8,8 @@ interface ReplayButtonProps {
 export default function ReplayButton ({onClick}: ReplayButtonProps) {
     const router = useRouter();
     return (
-        <div className={`${Barlow.className} flex justify-center items-center mt-44 rounded-lg border-2 w-40 border-white self-center justify-self-center tracking-wider text-xl hover:bg-white hover:border-dark text-white hover:text-dark-text button`}>
-        <button 
-           onClick={onClick}
-            className="text-green-500">
-            Replay
-        </button>
+        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-2 justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 text-dark-text button`}>
+        <FaArrowRotateRight size={32} />
     </div>
     )
 }

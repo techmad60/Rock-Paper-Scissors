@@ -34,7 +34,7 @@ export default function Result() {
         tl.fromTo('.user-choice', {scale: 3, opacity: 0}, {
             scale: 1,
             opacity: 1,
-            duration: 1,
+            duration: 0.95,
             ease: "bounce",
         });
         tl.fromTo('.computer-text', {x: 40, opacity: 0}, {
@@ -46,8 +46,14 @@ export default function Result() {
         tl.fromTo('.computer-choice', {scale: 3, opacity: 0}, {
             scale: 1,
             opacity: 1,
-            duration: 1,
+            duration: 0.95,
             ease: "bounce",
+        });
+        tl.fromTo('.uppercase', {scale: 3, opacity: 0}, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: "back.in",
         });
         // tl.fromTo('.icon', { opacity: 0}, {
         //     opacity: 1,
@@ -73,7 +79,7 @@ export default function Result() {
    
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="bg-background flex flex-col">
             <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result={result}/>
             <div className="flex justify-between items-center text-white mt-16">
                 <div className='flex flex-col justify-center items-center gap-8'>
@@ -92,7 +98,7 @@ export default function Result() {
                 </div>
 
                 <div className='flex flex-col justify-center items-center text-center gap-8'>
-                    <div className={`${computerClassString} computer-choice`}>
+                    <div className={`${computerClassString} computer-choice `}>
                         <Image
                             className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                             src={computerImageUrl}
@@ -106,9 +112,7 @@ export default function Result() {
                 </div>
 
             </div>
-            <p className={`${Barlow.className} uppercase text-center mt-16 text-white text-[60px] font-bold`}>{winner}</p>
-            {/* <PlayAgain /> */}
-            {/* <ReplayButton /> */}
+            <p className={`${Barlow.className} uppercase text-center mt-12 mb-4 text-[50px] font-bold text-green-500`}>{winner}</p>
             <Link href={"/level-two"} className='flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500'>
                 <button className={` text-lizard-1 p-2 bg-white m-1 rounded-sm`}>Level two</button>
             </Link>

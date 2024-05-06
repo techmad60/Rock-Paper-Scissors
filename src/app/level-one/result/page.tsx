@@ -21,9 +21,13 @@ const playAgain = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+       
       <Result />
-      <PlayAgain onClick={playAgain} />
-      <ReplayButton onClick={handleReplay}/>
+      <div className='flex justify-center items-center gap-20 mt-12'>
+        <PlayAgain onClick={playAgain} />
+        <ReplayButton onClick={handleReplay}/>
+      </div>
+     
     </Suspense>
   );
 }

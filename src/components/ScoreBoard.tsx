@@ -38,7 +38,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
           scale: 1,
           opacity: 1,
           duration: 1,
-          delay: 3,
+          delay: 2.5,
           ease: "bounce",
         });
     
