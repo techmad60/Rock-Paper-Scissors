@@ -6,6 +6,7 @@ import {useRouter} from 'next/navigation';
 import {useState}  from 'react';
 import ReplayButton from '@/components/ReplayButton';
 import PlayAgain from '@/components/PlayAgain';
+import LevelOneButton from '@/components/LevelOne';
 
 export default function ResultPage() {
   const [resultPage, setResultPage] = useState (false);
@@ -27,6 +28,7 @@ const playAgain = () => {
         <PlayAgain onClick={playAgain} />
         <ReplayButton onClick={handleReplay}/>
       </div>
+      <LevelOneButton/>
     </Suspense>
   );
 }
