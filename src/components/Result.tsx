@@ -1,10 +1,8 @@
 "use client"
 import ScoreBoard from "@/components/ScoreBoard";
-import ReplayButton from '@/components/ReplayButton';
-import RulesButton from '@/components/RulesButton';
-import PlayAgain from './PlayAgain';
-import { useState } from "react";
 import { useSearchParams } from 'next/navigation';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Barlow } from '@/fonts/fonts';
 import Image from 'next/image';
 import Link from "next/link";
@@ -23,6 +21,55 @@ export default function Result() {
     const result = resultParam !== null && resultParam !== 'false';
     const score = parseInt(searchParams.get("score") || "0", 10);
     console.log("Result-page :", result);
+
+    useGSAP(() => {
+        let tl = gsap.timeline()
+        
+        tl.fromTo('.user-text', {x: -40, opacity: 0}, {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power1.in",
+        });
+        tl.fromTo('.user-choice', {scale: 3, opacity: 0}, {
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+        });
+        tl.fromTo('.computer-text', {x: 40, opacity: 0}, {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power1.in",
+        });
+        tl.fromTo('.computer-choice', {scale: 3, opacity: 0}, {
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: "bounce",
+        });
+        // tl.fromTo('.icon', { opacity: 0}, {
+        //     opacity: 1,
+        //     rotate: 360,
+        //     stagger: 1
+        // });
+        // tl.to('.icon', {
+        //     y: -10,
+        //     duration: 0.5,
+        //     ease: "power2.out"
+        // })
+        // .to('.icon', {
+        //     y: 0, // Move the icons back down
+        //     duration: 0.5,
+        //     ease: "power2.inOut",
+        //     stagger: 0.5, // Stagger the animation of each icon
+        //     repeat: -1,
+        //     yoyo: true,
+        // });
+     
+      }, ); 
+
    
 
     return (
@@ -30,7 +77,7 @@ export default function Result() {
             <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result/>
             <div className="flex justify-between items-center text-white mt-16">
                 <div className='flex flex-col justify-center items-center gap-8'>
-                    <div className={userClassString}>
+                    <div className={`${userClassString} user-choice`}>
                         <Image
                             className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                             src={imageUrl}
@@ -41,11 +88,11 @@ export default function Result() {
                         />
                     </div>
 
-                    <p className={`${Barlow.className} font-semibold text-xl tracking-wider`}>YOU PICKED</p>
+                    <p className={`${Barlow.className} font-semibold text-xl tracking-wider user-text`}>YOU PICKED</p>
                 </div>
 
                 <div className='flex flex-col justify-center items-center text-center gap-8'>
-                    <div className={computerClassString}>
+                    <div className={`${computerClassString} computer-choice`}>
                         <Image
                             className="p-6 bg-white shadow-insets flex items-center self-center rounded-full object-cover"
                             src={computerImageUrl}
@@ -55,7 +102,7 @@ export default function Result() {
                             priority
                         />
                     </div>
-                    <p className={`${Barlow.className} font-semibold text-xl tracking-wider`}>THE HOUSE PICKED</p>
+                    <p className={`${Barlow.className} font-semibold text-xl tracking-wider computer-text`}>THE HOUSE PICKED</p>
                 </div>
 
             </div>

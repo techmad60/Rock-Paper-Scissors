@@ -39,7 +39,7 @@ export default function LevelOne() {
             stagger: 1
         });
         tl.to('.icon', {
-            y: -10, // Move the icons up
+            y: -10,
             duration: 0.5,
             ease: "power2.out"
         })
