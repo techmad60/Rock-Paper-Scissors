@@ -19,10 +19,8 @@ export default function Result() {
     const winner = searchParams.get('winner') || '';
     const resultParam = searchParams.get('result');
     const result = resultParam !== null && resultParam !== 'false';
-    const showParam = searchParams.get('show');
-    const show = showParam !== null && showParam !== 'true';
     const score = parseInt(searchParams.get("score") || "0", 10);
-    console.log("Result-page :", result, show);
+    console.log("Result-page :", result);
 
     useGSAP(() => {
         let tl = gsap.timeline()
@@ -76,7 +74,7 @@ export default function Result() {
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result  show/>
+            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result/>
             <div className="flex justify-between items-center text-white mt-16">
                 <div className='flex flex-col justify-center items-center gap-8'>
                     <div className={`${userClassString} user-choice`}>
