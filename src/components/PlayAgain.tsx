@@ -16,13 +16,13 @@ export default function PlayAgain({onClick}:PlayAgainProps) {
             x: 0,
             opacity: 1,
             duration: 1,
-            delay: 3.5
+            delay: 3.8
 
         });
     },)
 
     return (
-        <div className={`${Barlow.className} flex justify-center items-center  self-center border-2 rounded-full bg-white justify-self-center tracking-wider text-xl text-dark-text playagain-button p-2`}  onClick={onClick}>
+        <div className={`${Barlow.className} flex justify-center items-center  self-center border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 rounded-full bg-white justify-self-center tracking-wider text-xl text-dark-text playagain-button p-2`}  onClick={onClick}>
             <FaArrowLeft size={32}  />
         </div>
     );

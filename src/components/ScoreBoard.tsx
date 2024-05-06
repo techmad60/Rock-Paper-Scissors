@@ -1,6 +1,5 @@
 "use client"
 import { Barlow } from "../fonts/fonts";
-import {useSearchParams} from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState, useEffect } from "react";

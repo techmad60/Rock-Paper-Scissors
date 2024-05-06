@@ -14,13 +14,12 @@ export default function ReplayButton ({onClick}: ReplayButtonProps) {
             x: 0,
             opacity: 1,
             duration: 1,
-            delay: 3.5
-
+            delay: 3.8
         });
     },)
-    // const router = useRouter();
+
     return (
-        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-2 justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 text-dark-text replay-button`}>
+        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 text-dark-text justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 replay-button`}>
         <FaArrowRotateRight size={32} />
     </div>
     )

@@ -54,6 +54,7 @@ export default function Result() {
             opacity: 1,
             duration: 0.8,
             ease: "back.in",
+            
         });
         // tl.fromTo('.icon', { opacity: 0}, {
         //     opacity: 1,
