@@ -74,7 +74,7 @@ export default function Result() {
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result/>
+            <ScoreBoard userChoice={userChoice} computerChoice={computerChoice} score={score}  result={result}/>
             <div className="flex justify-between items-center text-white mt-16">
                 <div className='flex flex-col justify-center items-center gap-8'>
                     <div className={`${userClassString} user-choice`}>
