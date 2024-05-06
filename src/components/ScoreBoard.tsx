@@ -10,24 +10,31 @@ interface ScoreBoardProps {
     computerChoice: string;
     score: number;
     result: boolean;
+    show: boolean;
    
 
  
 }
 
-const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, score, result }) => {
+const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, score, result, show}) => {
 
     const [updatedScore, setUpdatedScore] = useState(score);
-    console.log ("Scoreboard :", result)
+    console.log ("Scoreboard :", result, "Scoreboard :", show)
     useEffect(() => {
-        if (result) {
+        if (!result) {
+            // Delay the score update by 4 seconds
             const timer = setTimeout(() => {
-            
                 setUpdatedScore(score);
-            }, 4000); // Delay of 4 seconds
-
-            return () => clearTimeout(timer); // Cleanup timer on unmount or re-render
+            }, 4000);
+            return () => clearTimeout(timer);
+        } else {
+            // Delay the score update by 1 second if it's on the result page
+            const timer = setTimeout(() => {
+                setUpdatedScore(score);
+            }, 9000);
+            return () => clearTimeout(timer);
         }
+
     }, [score, result]);
     useGSAP(() => {
         let tl = gsap.timeline()
