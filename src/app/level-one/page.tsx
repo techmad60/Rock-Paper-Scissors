@@ -27,10 +27,9 @@ export default function LevelOne() {
     useGSAP(() => {
         let tl = gsap.timeline()
         
-        tl.fromTo('.bg-triangle', { opacity: 0, x: 100, scale: 3 }, {
+        tl.fromTo('.bg-triangle', { opacity: 0, x: 100}, {
             opacity: 1,
             x: 0,
-            scale: 1,
             duration: 1,
             ease: "back.inOut(1)",
         });
@@ -38,6 +37,19 @@ export default function LevelOne() {
             opacity: 1,
             rotate: 360,
             stagger: 1
+        });
+        tl.to('.icon', {
+            y: -10, // Move the icons up
+            duration: 0.5,
+            ease: "power2.out"
+        })
+        .to('.icon', {
+            y: 0, // Move the icons back down
+            duration: 0.5,
+            ease: "power2.inOut",
+            stagger: 0.5, // Stagger the animation of each icon
+            repeat: -1,
+            yoyo: true,
         });
      
       }, ); 
