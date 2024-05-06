@@ -112,10 +112,10 @@ export default function Result() {
                 </div>
 
             </div>
-            <p className={`${Barlow.className} uppercase text-center mt-12 mb-4 text-[50px] font-bold text-green-500`}>{winner}</p>
-            <Link href={"/level-two"} className='flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500'>
+            <p className={`${Barlow.className} uppercase text-center mt-12 mb-4 text-[50px] text-white font-bold`}>{winner}</p>
+            {/* <Link href={"/level-two"} className='flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-4 hover:bg-green-500'>
                 <button className={` text-lizard-1 p-2 bg-white m-1 rounded-sm`}>Level two</button>
-            </Link>
+            </Link> */}
         </div>
     );
 }

@@ -112,7 +112,7 @@ export default function LevelOne() {
         const computerClassString = computerChoices[computerChoice].classString + ' w-[120px] h-[120px] icon rounded-full flex items-center justify-center border-[14px]  border-' + computerChoice + '-2 shadow-' + computerChoice;
         const computerImageUrl = computerChoices[computerChoice].imageUrl;
         const winner = determineWinner(userChoice, computerChoice);
-      
+       
         let newScore = score;
         
         if (winner === "You Win!") {
