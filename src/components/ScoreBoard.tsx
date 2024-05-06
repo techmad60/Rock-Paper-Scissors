@@ -16,22 +16,22 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
 
     const [updatedScore, setUpdatedScore] = useState(score);
     console.log ("Scoreboard :", result)
-    useEffect(() => {
-        // let timer: NodeJS.Timeout;
-        // if (result) {
-        //     // Delay the score update by 4 seconds if it's on the result page
-        //     timer = setTimeout(() => {
-        //         setUpdatedScore(score);
-        //     }, 4000);
-        // } else {
-        //     // Delay the score update by 1 second if it's not on the result page
-        //     timer = setTimeout(() => {
-        //         setUpdatedScore(score);
-        //     }, 1000);
-        // }
+    // useEffect(() => {
+    //     let timer: NodeJS.Timeout;
+    //     if (result) {
+    //         // Delay the score update by 4 seconds if it's on the result page
+    //         timer = setTimeout(() => {
+    //             setUpdatedScore(score);
+    //         }, 4000);
+    //     } else {
+    //         // Delay the score update by 1 second if it's not on the result page
+    //         timer = setTimeout(() => {
+    //             setUpdatedScore(score);
+    //         }, 1000);
+    //     }
 
-        // return () => clearTimeout(timer);
-    }, [score, result]);
+    //     return () => clearTimeout(timer);
+    // }, [score, result]);
     useGSAP(() => {
         let tl = gsap.timeline()
         tl.fromTo('.score', { opacity: 0, scale: 3}, {
