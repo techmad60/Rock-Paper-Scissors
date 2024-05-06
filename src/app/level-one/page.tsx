@@ -26,14 +26,18 @@ export default function LevelOne() {
 
     useGSAP(() => {
         let tl = gsap.timeline()
-        tl.fromTo('.icon-container', { opacity: 0, x: 20}, {
+        
+        tl.fromTo('.bg-triangle', { opacity: 0, x: 100, scale: 3 }, {
             opacity: 1,
-            x: 0
+            x: 0,
+            scale: 1,
+            duration: 1,
+            ease: "back.inOut(1)",
         });
         tl.fromTo('.icon', { opacity: 0}, {
             opacity: 1,
             rotate: 360,
-            stagger: 0.5
+            stagger: 1
         });
      
       }, ); 
