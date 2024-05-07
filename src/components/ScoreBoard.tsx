@@ -14,22 +14,7 @@ interface ScoreBoardProps {
 const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, score, result}) => {
 
     const [updatedScore, setUpdatedScore] = useState(score);
-    // useEffect(() => {
-    //     let timer: NodeJS.Timeout;
-    //     if (result) {
-    //         // Delay the score update by 4 seconds if it's on the result page
-    //         timer = setTimeout(() => {
-    //             setUpdatedScore(score);
-    //         }, 4000);
-    //     } else {
-    //         // Delay the score update by 1 second if it's not on the result page
-    //         timer = setTimeout(() => {
-    //             setUpdatedScore(score);
-    //         }, 1000);
-    //     }
 
-    //     return () => clearTimeout(timer);
-    // }, [score, result]);
     useGSAP(() => {
         let tl = gsap.timeline()
         tl.fromTo('.score', { opacity: 0, scale: 3}, {
@@ -40,22 +25,10 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, sco
           ease: "bounce",
         });
     
-        // tl.to('.icon', {
-        //   motionPath: {
-        //     path: "#path",
-        //     autoRotate: true,
-        //     align: "#path",
-        //     alignOrigin: [0.5, 0.5],
-        //   },
-        //   ease: "none",
-        //   duration: 1,
-        //   stagger: 0.2,
-        //   repeat: -1,
-        // });
     
       }, ); 
     return (
-        <div className="flex flex-col border-[3px] border-header-outline rounded-md p-1 score-container">
+        <div className=" flex-col border-[3px] border-header-outline rounded-md p-1 score-container flex md:w-1/2 md:self-center">
             <div className={` ${Barlow.className} flex justify-between items-center  m-1`}>
                 <div className={` ${Barlow.className} text-white font-semibold text-xl leading-4 pl-4`}> 
                     <p className="word">ROCK</p>
