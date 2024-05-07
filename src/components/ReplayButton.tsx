@@ -2,7 +2,7 @@
 import { Barlow } from "@/fonts/fonts";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { FaArrowRotateRight } from 'react-icons/fa6';
+import { FaArrowRotateLeft } from 'react-icons/fa6';
 
 interface ReplayButtonProps {
     onClick: () => void;
@@ -19,8 +19,12 @@ export default function ReplayButton ({onClick}: ReplayButtonProps) {
     },)
 
     return (
-        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 text-dark-text justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 replay-button cursor-pointer`}  onClick={onClick}>
-        <FaArrowRotateRight size={32} />
-    </div>
+        <div className={`${Barlow.className} flex flex-col justify-center items-center `}>
+            <div className={`${Barlow.className} flex justify-center items-center rounded-full border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 text-dark-text justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 replay-button cursor-pointer`}  onClick={onClick}>
+                <FaArrowRotateLeft size={32} />
+            </div>
+            <p className="text-sm text-white tracking-wide">Restart</p>
+        </div>
+       
     )
 }
