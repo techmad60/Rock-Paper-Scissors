@@ -19,7 +19,7 @@ export default function ReplayButton ({onClick}: ReplayButtonProps) {
     },)
 
     return (
-        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 text-dark-text justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 replay-button`}>
+        <div className={`${Barlow.className} flex justify-center items-center rounded-full border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 text-dark-text justify-self-center tracking-wider text-xl bg-white hover:border-dark p-2 replay-button cursor-pointer`}  onClick={onClick}>
         <FaArrowRotateRight size={32} />
     </div>
     )

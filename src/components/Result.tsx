@@ -20,7 +20,6 @@ export default function Result() {
     const resultParam = searchParams.get('result');
     const result = resultParam !== null && resultParam !== 'false';
     const score = parseInt(searchParams.get("score") || "0", 10);
-    console.log("Result-page :", result);
 
     useGSAP(() => {
         let tl = gsap.timeline()
@@ -56,24 +55,6 @@ export default function Result() {
             ease: "back.in",
 
         });
-        // tl.fromTo('.icon', { opacity: 0}, {
-        //     opacity: 1,
-        //     rotate: 360,
-        //     stagger: 1
-        // });
-        // tl.to('.icon', {
-        //     y: -10,
-        //     duration: 0.5,
-        //     ease: "power2.out"
-        // })
-        // .to('.icon', {
-        //     y: 0, // Move the icons back down
-        //     duration: 0.5,
-        //     ease: "power2.inOut",
-        //     stagger: 0.5, // Stagger the animation of each icon
-        //     repeat: -1,
-        //     yoyo: true,
-        // });
      
       }, ); 
 

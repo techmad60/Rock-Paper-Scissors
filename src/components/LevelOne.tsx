@@ -2,6 +2,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle } from '@/fonts/fonts';
+import { useSearchParams } from "next/navigation";
 
 export default function LevelOneButton() {
     useGSAP(() => {

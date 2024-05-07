@@ -14,7 +14,6 @@ interface ScoreBoardProps {
 const ScoreBoard: React.FC<ScoreBoardProps> = ({ userChoice, computerChoice, score, result}) => {
 
     const [updatedScore, setUpdatedScore] = useState(score);
-    console.log ("Scoreboard :", result)
     // useEffect(() => {
     //     let timer: NodeJS.Timeout;
     //     if (result) {

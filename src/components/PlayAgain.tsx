@@ -22,7 +22,7 @@ export default function PlayAgain({onClick}:PlayAgainProps) {
     },)
 
     return (
-        <div className={`${Barlow.className} flex justify-center items-center  self-center border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 rounded-full bg-white justify-self-center tracking-wider text-xl text-dark-text playagain-button p-2`}  onClick={onClick}>
+        <div className={`${Barlow.className} flex justify-center items-center  self-center border-4 border-t-rock-1 border-r-paper-1 border-b-spock-1 border-l-scissors-1 rounded-full bg-white justify-self-center tracking-wider text-xl text-dark-text playagain-button p-2 cursor-pointer`}  onClick={onClick}>
             <FaArrowLeft size={32}  />
         </div>
     );
