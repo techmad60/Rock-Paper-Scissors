@@ -26,8 +26,8 @@ const playAgain = () => {
     <Suspense>
       <Result/>
       <div className='flex justify-center items-center gap-20 mt-12'>
-        <PlayAgain onClick={playAgain} />
         <ReplayButton onClick={handleReplay}/>
+        <PlayAgain onClick={playAgain} />
       </div>
       <LevelTwoButton/>
     </Suspense>
