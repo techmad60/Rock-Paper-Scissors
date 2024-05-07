@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Freckle } from '@/fonts/fonts';
@@ -14,7 +14,8 @@ export default function LevelTwoButton() {
     console.log(score);
     const handleLevelScore = () => {
         if (currentScore < 6) {
-            alert("You need at least 6 points to unlock Level Two! 🙅 ");
+            alert("You need at least 6 points to unlock Level Two! 🙅");
+            return;
 
         } else {
             // Navigate to Level Two
@@ -34,9 +35,9 @@ export default function LevelTwoButton() {
     })
     return (
         <div>
-            <Link href={"/level-two"} className={`${Freckle.className} flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-12 leveltwo-btn`}>
-                <button className={` text-lizard-1 p-2 bg-white m-1 rounded-sm`} onClick={handleLevelScore}>Level two</button>
-            </Link>
+            <div className={`${Freckle.className} flex justify-center items-center w-fit mx-auto border-4 border-t-rock-1 border-r-paper-1 border-l-scissors-1 border-b-spock-1 rounded-md button mt-12 leveltwo-btn cursor-pointer`} onClick={handleLevelScore}>
+                <button className={` text-lizard-1 p-2 bg-white m-1 rounded-sm`} >Level two</button>
+            </div>
         </div>
     )
 }
