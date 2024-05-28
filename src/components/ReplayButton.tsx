@@ -20,7 +20,6 @@ export default function ReplayButton ({onClick}: ReplayButtonProps) {
             x: 0,
             opacity: 1,
             duration: 1,
-            delay: 3.8
         });
     },)
 

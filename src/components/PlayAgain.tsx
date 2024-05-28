@@ -12,7 +12,7 @@ interface PlayAgainProps {
 export default function PlayAgain({onClick}:PlayAgainProps) {
     useGSAP(() => {
         let tl = gsap.timeline()
-        tl.fromTo('.replay-button', { opacity: 0, x: 100}, {
+        tl.fromTo('.playagain-button', { opacity: 0, x: 100}, {
             x: 0,
             opacity: 1,
             duration: 1,
@@ -23,7 +23,6 @@ export default function PlayAgain({onClick}:PlayAgainProps) {
             x: 0,
             opacity: 1,
             duration: 1,
-            delay: 3.8
 
         });
     },)
